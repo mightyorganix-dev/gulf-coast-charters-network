@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reserve a Charter | Gulf Coast Charters Network</title>
+  <meta name="description" content="Multi-step booking — trip, date, guest info, waiver, deposit hold." />
+  <script type="module" crossorigin src="./assets/book-DrBOH1Gg.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/layout-D7o9Jn7H.js">
+  <link rel="stylesheet" crossorigin href="./assets/layout-D_hS2Gss.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+  <header class="page-hero">
+    <div class="container-narrow">
+      <div class="eyebrow">Premier hold desk</div>
+      <h1>Reserve with intention</h1>
+      <p>Five calm steps. Deposit holds the date. Weather Red transfers as credit. Your itinerary pass becomes the keepsake.</p>
+    </div>
+  </header>
+  <main class="page" style="padding-top:0">
+    <div class="container-narrow">
+      <div class="progress">
+        <div class="step-pill is-active" data-step-pill="1"><span class="num">1</span> Trip</div>
+        <div class="step-pill" data-step-pill="2"><span class="num">2</span> Date</div>
+        <div class="step-pill" data-step-pill="3"><span class="num">3</span> Guest</div>
+        <div class="step-pill" data-step-pill="4"><span class="num">4</span> Waiver</div>
+        <div class="step-pill" data-step-pill="5"><span class="num">5</span> Deposit</div>
+      </div>
+
+      <section id="step-1">
+        <h2>Choose your trip</h2>
+        <p class="muted">Premier products only — each with a guest-experience promise.</p>
+        <div class="card-grid" id="trip-select" style="margin:1.25rem 0"></div>
+        <button type="button" class="btn btn-primary" id="next-1">Continue</button>
+      </section>
+
+      <section id="step-2" class="hidden">
+        <h2>Date &amp; party</h2>
+        <div class="grid-2" style="margin:1.25rem 0">
+          <div class="field"><label for="trip-date">Charter date</label><input id="trip-date" type="date"></div>
+          <div class="field"><label for="start-time">Preferred start</label>
+            <select id="start-time">
+              <option>06:00 AM</option><option>06:30 AM</option><option>07:00 AM</option>
+              <option>09:00 AM</option><option>10:00 AM</option><option>02:00 PM</option>
+              <option>05:30 PM</option><option>06:30 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Party size</label>
+          <div class="qty">
+            <button type="button" id="party-minus">−</button>
+            <strong id="party-display" style="color:var(--cream)">4</strong>
+            <button type="button" id="party-plus">+</button>
+          </div>
+        </div>
+        <div class="actions" style="margin-top:1.25rem">
+          <button type="button" class="btn btn-ghost" data-back="1">Back</button>
+          <button type="button" class="btn btn-primary" id="next-2">Continue</button>
+        </div>
+      </section>
+
+      <section id="step-3" class="hidden">
+        <h2>Guest lead</h2>
+        <p class="muted">Used for captain SMS, weather calls, and your itinerary pass.</p>
+        <div class="grid-2" style="margin:1.25rem 0">
+          <div class="field"><label for="guest-name">Full name</label><input id="guest-name" autocomplete="name"></div>
+          <div class="field"><label for="guest-phone">Mobile</label><input id="guest-phone" autocomplete="tel"></div>
+          <div class="field" style="grid-column:1/-1"><label for="guest-email">Email</label><input id="guest-email" type="email" autocomplete="email"></div>
+          <div class="field" style="grid-column:1/-1"><label for="cert-number">Dive cert # (spear trips)</label><input id="cert-number" placeholder="Optional unless spearfishing"></div>
+          <div class="field" style="grid-column:1/-1"><label for="guest-notes">Notes for captain</label><textarea id="guest-notes" rows="3" placeholder="Kids ages, celebration, dietary, proposal timing…"></textarea></div>
+        </div>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" data-back="2">Back</button>
+          <button type="button" class="btn btn-primary" id="next-3">Continue</button>
+        </div>
+      </section>
+
+      <section id="step-4" class="hidden">
+        <h2>Liability waiver</h2>
+        <div class="card" style="margin:1rem 0">
+          <p style="color:var(--cream);font-size:0.92rem">I understand boating, fishing, spearfishing, and watersports involve inherent risk. I accept captain authority on weather (Green/Yellow/Red), will follow safety briefs, wear required PFDs when asked, and will not bring glass or impairing substances that violate vessel rules. I release Gulf Coast Charters Network and the operating captain/company from claims arising from ordinary negligence to the fullest extent permitted by Alabama law.</p>
+          <label class="field" style="display:flex;gap:0.65rem;align-items:flex-start;margin-top:1rem">
+            <input id="waiver-check" type="checkbox" style="width:auto;margin-top:0.25rem">
+            <span style="color:var(--sand-muted);font-size:0.85rem;text-transform:none;letter-spacing:0">I have read and agree to the waiver for all guests in my party.</span>
+          </label>
+        </div>
+        <div class="field">
+          <label>Signature</label>
+          <div class="signature-wrap"><canvas id="signature-pad"></canvas></div>
+          <button type="button" class="btn btn-ghost btn-sm" id="clear-sign" style="margin-top:0.5rem">Clear signature</button>
+        </div>
+        <div class="actions" style="margin-top:1.25rem">
+          <button type="button" class="btn btn-ghost" data-back="3">Back</button>
+          <button type="button" class="btn btn-primary" id="next-4">Continue to deposit</button>
+        </div>
+      </section>
+
+      <section id="step-5" class="hidden">
+        <div id="step-5-form">
+          <h2>Deposit hold</h2>
+          <p id="stripe-note" class="notice-banner">Deposit hold saves locally for ops follow-up.</p>
+          <div id="booking-summary"></div>
+          <div class="actions" style="margin-top:1.25rem">
+            <button type="button" class="btn btn-ghost" data-back="4">Back</button>
+            <button type="button" class="btn btn-primary" id="confirm-hold">Confirm deposit hold</button>
+          </div>
+        </div>
+        <div id="book-result" style="margin-top:1.5rem"></div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

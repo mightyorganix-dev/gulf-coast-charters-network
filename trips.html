@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trip Catalog | Gulf Coast Charters Network</title>
+  <meta name="description" content="Filterable charter catalog — offshore, inshore, spearfishing, dolphin, sunset, jet ski, private yacht." />
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <header class="page-hero">
+    <div class="container">
+      <div class="eyebrow">Curated catalog</div>
+      <h1>Trips worth dressing up for</h1>
+      <p>Filter by type, marina, price, and party size. Every listing carries a guest-experience promise — not just a rate.</p>
+    </div>
+  </header>
+  <main class="page" style="padding-top:0">
+    <div class="container">
+      <div class="filters">
+        <div class="field"><label for="f-q">Search</label><input id="f-q" type="search" placeholder="Captain, trip, marina…"></div>
+        <div class="field"><label for="f-category">Type</label>
+          <select id="f-category">
+            <option value="all">All types</option>
+            <option value="offshore">Offshore fishing</option>
+            <option value="inshore">Inshore fishing</option>
+            <option value="spearfishing">Spearfishing</option>
+            <option value="dolphin">Dolphin cruise</option>
+            <option value="sunset">Sunset cruise</option>
+            <option value="jetski">Jet ski</option>
+            <option value="watersports">Water sports</option>
+            <option value="private">Private charter</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-marina">Marina</label><select id="f-marina"></select></div>
+        <div class="field"><label for="f-price">Max price</label>
+          <select id="f-price">
+            <option value="">Any</option>
+            <option value="100">Under $100</option>
+            <option value="500">Under $500</option>
+            <option value="1000">Under $1,000</option>
+            <option value="2000">Under $2,000</option>
+            <option value="5000">Under $5,000</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-party">Party size</label>
+          <select id="f-party">
+            <option value="">Any</option>
+            <option value="2">2+</option>
+            <option value="4">4+</option>
+            <option value="6">6+</option>
+            <option value="10">10+</option>
+          </select>
+        </div>
+        <div class="field" style="display:flex;align-items:flex-end"><span id="trips-count" class="muted" style="font-size:0.85rem"></span></div>
+      </div>
+      <div class="card-grid" id="trips-grid"></div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/src/js/trips.js"></script>
+</body>
+</html>

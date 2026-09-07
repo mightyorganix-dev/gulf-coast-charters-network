@@ -1,0 +1,1215 @@
+{
+  "version": 2,
+  "brand": "Gulf Coast Charters Network",
+  "cx": {
+    "promise": "Every trip is treated as once-in-a-lifetime \u2014 curated captains, weather integrity, and a keepsake itinerary.",
+    "weatherProtocol": "Green = proceed. Yellow = stand by for morning call. Red = cancel/reschedule; deposit transfers as credit.",
+    "depositNote": "Deposits hold the date (typically 25\u201340%). Stripe checkout scaffolded but disabled until secrets are set.",
+    "notAggregator": "Gulf Coast Charters Network is not a discount seat marketplace. We curate operators to a premier guest-experience bar."
+  },
+  "marinas": [
+    {
+      "id": "zekes",
+      "name": "Zeke's Landing Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "26619 Perdido Beach Blvd, Orange Beach, AL 36561",
+      "notes": "Largest charter fleet hub on the Alabama coast; charter office + dock store.",
+      "phone": "(251) 981-4044"
+    },
+    {
+      "id": "hudson",
+      "name": "Hudson Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "4575 S Wilson Blvd, Orange Beach, AL 36561",
+      "notes": "Semi-private & private offshore; jet ski fleet; dolphin desk.",
+      "phone": "(251) 981-5551"
+    },
+    {
+      "id": "caribe",
+      "name": "Caribe Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "28101 Perdido Beach Blvd, Orange Beach, AL 36561",
+      "notes": "East of Perdido Pass \u2014 private/shared offshore, inshore, party boat.",
+      "phone": "(251) 980-8410"
+    },
+    {
+      "id": "obm",
+      "name": "Orange Beach Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "27075 Marina Rd, Orange Beach, AL 36561",
+      "notes": "Private 6-pack sportfishers; Distraction-class family charter corridor.",
+      "phone": "(251) 981-4207"
+    },
+    {
+      "id": "sportsman",
+      "name": "Sportsman Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "27842 Canal Rd, Orange Beach, AL 36561",
+      "notes": "Canal Road hub; parasail & inshore friendly.",
+      "phone": "(251) 981-4245"
+    },
+    {
+      "id": "sanroc",
+      "name": "SanRoc Cay Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "27267 Perdido Beach Blvd, Orange Beach, AL 36561",
+      "notes": "Resort-adjacent slips; watersports & sunset products.",
+      "phone": "(251) 981-9781"
+    },
+    {
+      "id": "wharf",
+      "name": "The Wharf Marina",
+      "city": "Orange Beach",
+      "zip": "36561",
+      "address": "4673 Wharf Pkwy W, Orange Beach, AL 36561",
+      "notes": "Dolphin cruise boarding near SpringHill Suites.",
+      "phone": "(251) 589-7117"
+    },
+    {
+      "id": "fm",
+      "name": "Fort Morgan Marina area",
+      "city": "Gulf Shores",
+      "zip": "36542",
+      "address": "Fort Morgan Rd, Gulf Shores, AL 36542",
+      "notes": "West-end launches \u2014 shorter steam when east beaches pack out.",
+      "phone": "(251) 540-7500"
+    }
+  ],
+  "operators": [
+    {
+      "id": "op-1",
+      "name": "Capt. Marcus Vance",
+      "slug": "marcus-vance",
+      "company": "Bluewater Vance Charters",
+      "specialty": [
+        "offshore",
+        "spearfishing"
+      ],
+      "uscgLicense": "USCG 100-Ton Master",
+      "experienceYears": 14,
+      "phone": "(251) 555-0192",
+      "email": "marcus@gccn.example",
+      "marinaId": "zekes",
+      "avatar": "./images/captains/cap-1.jpg",
+      "bio": "Fourteen seasons on Alabama reefs and federal platforms. Briefs weather before banter \u2014 the steward captains trust for once-in-a-lifetime offshore days.",
+      "stewardship": "Green/Yellow/Red weather protocol. Guest SMS before dawn. Fillet station coordination at Zeke's dock.",
+      "rating": 4.97,
+      "reviewCount": 214,
+      "tripsRun": 820,
+      "status": "active",
+      "tags": [
+        "USCG Master",
+        "6-pack",
+        "Federal permit"
+      ]
+    },
+    {
+      "id": "op-2",
+      "name": "Capt. Sarah Jennings",
+      "slug": "sarah-jennings",
+      "company": "Horizon Spearfishing Co.",
+      "specialty": [
+        "spearfishing",
+        "offshore"
+      ],
+      "uscgLicense": "USCG 50-Ton Master",
+      "experienceYears": 10,
+      "phone": "(251) 555-0144",
+      "email": "sarah@gccn.example",
+      "marinaId": "obm",
+      "avatar": "./images/captains/cap-2.jpg",
+      "bio": "Freedive-first operator with sister-brand DNA from Gulf Coast Spearfishing. Credentials verified before lines leave the dock.",
+      "stewardship": "Cert card check. Oxygen & first-aid brief. Selective-shot ethics \u2014 not a meat hunt.",
+      "rating": 4.95,
+      "reviewCount": 168,
+      "tripsRun": 610,
+      "status": "active",
+      "tags": [
+        "Spear specialist",
+        "FII/PFI literate",
+        "Sister brand"
+      ]
+    },
+    {
+      "id": "op-3",
+      "name": "Capt. Troy Hale",
+      "slug": "troy-hale",
+      "company": "Hale Family Sportfishing",
+      "specialty": [
+        "offshore",
+        "inshore"
+      ],
+      "uscgLicense": "USCG 50-Ton Master",
+      "experienceYears": 22,
+      "phone": "(251) 555-8111",
+      "email": "troy@gccn.example",
+      "marinaId": "obm",
+      "avatar": "./images/captains/cap-3.jpg",
+      "bio": "Owner-operator private 6-pack from Orange Beach Marina. Patient coaching for kids and first-timers without diluting serious fishing effort \u2014 Distraction-class guest care.",
+      "stewardship": "Clear expectations before you book. No cattle-boat energy. Fish cleaning & bagging included on full days.",
+      "rating": 4.98,
+      "reviewCount": 930,
+      "tripsRun": 2100,
+      "status": "active",
+      "tags": [
+        "Family-first",
+        "Private 6-pack",
+        "930+ five-stars"
+      ]
+    },
+    {
+      "id": "op-4",
+      "name": "Capt. Alicia Tran",
+      "slug": "alicia-tran",
+      "company": "Gulf Glow Cruises",
+      "specialty": [
+        "sunset",
+        "dolphin",
+        "private"
+      ],
+      "uscgLicense": "USCG 25-Ton Master",
+      "experienceYears": 9,
+      "phone": "(251) 555-0118",
+      "email": "alicia@gccn.example",
+      "marinaId": "caribe",
+      "avatar": "./images/captains/cap-4.jpg",
+      "bio": "Sunset and celebration specialist. Soft music optional \u2014 the Gulf horizon is the product. Quiet luxury for proposals and anniversaries.",
+      "stewardship": "Proposal protocols (crew briefed, timing set). Weather-soft reroutes in the back bays when the Pass is rough.",
+      "rating": 4.97,
+      "reviewCount": 312,
+      "tripsRun": 740,
+      "status": "active",
+      "tags": [
+        "Sunset",
+        "Celebration",
+        "BYOB soft"
+      ]
+    },
+    {
+      "id": "op-5",
+      "name": "Capt. Noah Price",
+      "slug": "noah-price",
+      "company": "Fin & Wake Adventures",
+      "specialty": [
+        "watersports",
+        "jetski"
+      ],
+      "uscgLicense": "USCG OUPV",
+      "experienceYears": 7,
+      "phone": "(251) 555-0160",
+      "email": "noah@gccn.example",
+      "marinaId": "sanroc",
+      "avatar": "./images/captains/cap-5.jpg",
+      "bio": "Jet ski, parasail, and tow-sports desk with a safety-first culture. Thrills after the brief \u2014 never before.",
+      "stewardship": "Mandatory life-jacket & route brief. Wildlife no-chase rules. Red-flag wind holds without argument.",
+      "rating": 4.89,
+      "reviewCount": 540,
+      "tripsRun": 980,
+      "status": "active",
+      "tags": [
+        "Watersports",
+        "Parasail partner",
+        "SanRoc"
+      ]
+    },
+    {
+      "id": "op-6",
+      "name": "Capt. Camille Brooks",
+      "slug": "camille-brooks",
+      "company": "Coastal Private Yacht Desk",
+      "specialty": [
+        "private",
+        "sunset"
+      ],
+      "uscgLicense": "USCG 100-Ton Master",
+      "experienceYears": 12,
+      "phone": "(251) 555-0133",
+      "email": "camille@gccn.example",
+      "marinaId": "obm",
+      "avatar": "./images/captains/cap-6.jpg",
+      "bio": "Private yacht and corporate celebration charters. Once-in-a-lifetime days for families who want the boat \u2014 and the silence \u2014 to themselves.",
+      "stewardship": "Mate + captain staffing. Itinerary design call 48h prior. Champagne staging on request.",
+      "rating": 4.96,
+      "reviewCount": 147,
+      "tripsRun": 430,
+      "status": "active",
+      "tags": [
+        "Private yacht",
+        "Corporate",
+        "Catamaran"
+      ]
+    },
+    {
+      "id": "op-7",
+      "name": "Capt. Ty Walker",
+      "slug": "ty-walker",
+      "company": "Fort Morgan Anglers",
+      "specialty": [
+        "inshore",
+        "offshore"
+      ],
+      "uscgLicense": "USCG 50-Ton Master",
+      "experienceYears": 16,
+      "phone": "(251) 555-0188",
+      "email": "ty@gccn.example",
+      "marinaId": "fm",
+      "avatar": "./images/captains/cap-7.jpg",
+      "bio": "West-end specialist launching near Fort Morgan \u2014 productive water when Perdido Beach Blvd is gridlocked. Gulf Shores 36542 literate.",
+      "stewardship": "Kids rods on request. Honest wind calls. Local fillet partners on return.",
+      "rating": 4.91,
+      "reviewCount": 205,
+      "tripsRun": 890,
+      "status": "active",
+      "tags": [
+        "36542",
+        "Inshore coach",
+        "West end"
+      ]
+    },
+    {
+      "id": "op-8",
+      "name": "Capt. Lena Ortega",
+      "slug": "lena-ortega",
+      "company": "Pod Watch Dolphin Tours",
+      "specialty": [
+        "dolphin",
+        "sunset"
+      ],
+      "uscgLicense": "USCG 25-Ton Master",
+      "experienceYears": 8,
+      "phone": "(251) 555-0125",
+      "email": "lena@gccn.example",
+      "marinaId": "wharf",
+      "avatar": "./images/captains/cap-8.jpg",
+      "bio": "Naturalist-forward dolphin cruises from The Wharf corridor. Observe and glide \u2014 never chase. Kids welcome, cameras ready.",
+      "stewardship": "Wildlife viewing guidelines briefed. AC salon + shade deck. Stroller-friendly boarding window.",
+      "rating": 4.96,
+      "reviewCount": 680,
+      "tripsRun": 1020,
+      "status": "active",
+      "tags": [
+        "Naturalist",
+        "Family",
+        "Wharf"
+      ]
+    },
+    {
+      "id": "op-9",
+      "name": "Capt. Mitch Callahan",
+      "slug": "mitch-callahan",
+      "company": "Callahan Legacy Charters",
+      "specialty": [
+        "offshore"
+      ],
+      "uscgLicense": "USCG 100-Ton Master",
+      "experienceYears": 28,
+      "phone": "(251) 555-0840",
+      "email": "mitch@gccn.example",
+      "marinaId": "caribe",
+      "avatar": "./images/captains/cap-1.jpg",
+      "bio": "Third-generation Orange Beach charter family \u2014 Caribe Marina desk. Shared-expense and private offshore with old-coast manners.",
+      "stewardship": "Federal permit seasons briefed. Mate rotation documented. Guest cooler protocol.",
+      "rating": 4.93,
+      "reviewCount": 410,
+      "tripsRun": 3200,
+      "status": "active",
+      "tags": [
+        "Legacy family",
+        "Caribe",
+        "Shared or private"
+      ]
+    },
+    {
+      "id": "op-10",
+      "name": "Capt. Johnny Reed",
+      "slug": "johnny-reed",
+      "company": "Intrepid Offshore",
+      "specialty": [
+        "offshore"
+      ],
+      "uscgLicense": "USCG 100-Ton Master",
+      "experienceYears": 33,
+      "phone": "(251) 555-3301",
+      "email": "johnny@gccn.example",
+      "marinaId": "hudson",
+      "avatar": "./images/captains/cap-3.jpg",
+      "bio": "Hudson Marina overnight and multi-day specialist. Rigs, tuna windows, and the long steam for guests who measure trips in bluewater miles.",
+      "stewardship": "Overnight berth brief. Fuel surcharges disclosed upfront. Red calls honor deposits as credits.",
+      "rating": 4.9,
+      "reviewCount": 290,
+      "tripsRun": 2800,
+      "status": "active",
+      "tags": [
+        "Overnight capable",
+        "Hudson",
+        "Rigs"
+      ]
+    }
+  ],
+  "boats": [
+    {
+      "id": "boat-1",
+      "name": "SpearIt of the Gulf",
+      "operatorId": "op-1",
+      "type": "center-console",
+      "lengthFeet": 32,
+      "capacity": 6,
+      "engines": "Twin 300HP Yamaha",
+      "marinaId": "zekes",
+      "features": [
+        "Garmin dual screens",
+        "T-top shade",
+        "Livewell",
+        "Dive ladder",
+        "Oxygen kit"
+      ],
+      "image": "./images/boats/center-console.jpg",
+      "status": "active",
+      "yearRefit": 2024
+    },
+    {
+      "id": "boat-2",
+      "name": "Rig Hunter",
+      "operatorId": "op-2",
+      "type": "center-console",
+      "lengthFeet": 36,
+      "capacity": 6,
+      "engines": "Triple 300HP Mercury",
+      "marinaId": "obm",
+      "features": [
+        "Bluewater range",
+        "Underwater lights",
+        "Ice holds",
+        "EPIRB",
+        "Spear racks"
+      ],
+      "image": "./images/boats/sportfisher.jpg",
+      "status": "active",
+      "yearRefit": 2025
+    },
+    {
+      "id": "boat-3",
+      "name": "Family First",
+      "operatorId": "op-3",
+      "type": "sportfisher",
+      "lengthFeet": 41,
+      "capacity": 6,
+      "engines": "Twin diesel (2025 repower)",
+      "marinaId": "obm",
+      "features": [
+        "Clean restroom",
+        "Shade",
+        "Comfortable seating",
+        "Fish cleaning station"
+      ],
+      "image": "./images/boats/sportfisher.jpg",
+      "status": "active",
+      "yearRefit": 2025
+    },
+    {
+      "id": "boat-4",
+      "name": "Golden Hour",
+      "operatorId": "op-4",
+      "type": "pontoon",
+      "lengthFeet": 28,
+      "capacity": 12,
+      "engines": "Twin 150HP",
+      "marinaId": "caribe",
+      "features": [
+        "Shade canopy",
+        "Bluetooth",
+        "Cooler stations",
+        "Soft seating"
+      ],
+      "image": "./images/boats/pontoon.jpg",
+      "status": "active",
+      "yearRefit": 2023
+    },
+    {
+      "id": "boat-5",
+      "name": "Wake Line One",
+      "operatorId": "op-5",
+      "type": "deck-boat",
+      "lengthFeet": 26,
+      "capacity": 10,
+      "engines": "300HP Mercury",
+      "marinaId": "sanroc",
+      "features": [
+        "Tow tower",
+        "Ski locker",
+        "Soft seating"
+      ],
+      "image": "./images/boats/deckboat.jpg",
+      "status": "active",
+      "yearRefit": 2024
+    },
+    {
+      "id": "boat-6",
+      "name": "Azure Private",
+      "operatorId": "op-6",
+      "type": "catamaran",
+      "lengthFeet": 42,
+      "capacity": 14,
+      "engines": "Twin diesel",
+      "marinaId": "obm",
+      "features": [
+        "Salon",
+        "Foredeck lounge",
+        "Galley",
+        "Sound system",
+        "Head"
+      ],
+      "image": "./images/boats/catamaran.jpg",
+      "status": "active",
+      "yearRefit": 2022
+    },
+    {
+      "id": "boat-7",
+      "name": "Morgan's Edge",
+      "operatorId": "op-7",
+      "type": "center-console",
+      "lengthFeet": 30,
+      "capacity": 6,
+      "engines": "Twin 250HP Yamaha",
+      "marinaId": "fm",
+      "features": [
+        "Outriggers",
+        "Freshwater washdown",
+        "Kid rod rack"
+      ],
+      "image": "./images/boats/bayboat.jpg",
+      "status": "active",
+      "yearRefit": 2023
+    },
+    {
+      "id": "boat-8",
+      "name": "Pod Watcher",
+      "operatorId": "op-8",
+      "type": "pontoon",
+      "lengthFeet": 30,
+      "capacity": 14,
+      "engines": "Twin 115HP",
+      "marinaId": "wharf",
+      "features": [
+        "Binoculars",
+        "Shade",
+        "Kid PFDs",
+        "Narration mic"
+      ],
+      "image": "./images/boats/pontoon.jpg",
+      "status": "active",
+      "yearRefit": 2024
+    },
+    {
+      "id": "boat-9",
+      "name": "Caribe Legacy",
+      "operatorId": "op-9",
+      "type": "sportfisher",
+      "lengthFeet": 48,
+      "capacity": 12,
+      "engines": "Twin diesel",
+      "marinaId": "caribe",
+      "features": [
+        "Salon A/C",
+        "Fighting chair option",
+        "Large ice holds"
+      ],
+      "image": "./images/boats/sportfisher.jpg",
+      "status": "active",
+      "yearRefit": 2021
+    },
+    {
+      "id": "boat-10",
+      "name": "Intrepid",
+      "operatorId": "op-10",
+      "type": "sportfisher",
+      "lengthFeet": 55,
+      "capacity": 14,
+      "engines": "Twin diesel",
+      "marinaId": "hudson",
+      "features": [
+        "Overnight berths",
+        "Galley",
+        "Long-range fuel",
+        "Mate stations"
+      ],
+      "image": "./images/boats/sportfisher.jpg",
+      "status": "active",
+      "yearRefit": 2020
+    }
+  ],
+  "trips": [
+    {
+      "id": "trip-1",
+      "title": "Premier Full-Day Offshore",
+      "category": "offshore",
+      "subtitle": "Private 6-pack \u00b7 snapper & reef day",
+      "operatorId": "op-3",
+      "boatId": "boat-3",
+      "marinaId": "obm",
+      "durationHours": 8,
+      "basePrice": 1650,
+      "maxParty": 6,
+      "depositPercent": 30,
+      "image": "./images/trips/offshore.jpg",
+      "includes": [
+        "Licensed captain & mate",
+        "Fuel",
+        "Tackle & bait",
+        "Licenses for party",
+        "Fish cleaning & bagging"
+      ],
+      "excludes": [
+        "Gratuity (15\u201320% customary)",
+        "Food & drinks"
+      ],
+      "description": "The network's flagship fishing day \u2014 private boat, patient coaching, serious effort. Orange Beach Marina boarding with the guest-care standard families write five-star reviews about.",
+      "experiencePromise": "You will know the plan before you leave the condo. Weather called honestly. Fillet cooler ready on return.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-2",
+      "title": "Half-Day Inshore Classic",
+      "category": "inshore",
+      "subtitle": "Redfish, trout & nearshore structure",
+      "operatorId": "op-7",
+      "boatId": "boat-7",
+      "marinaId": "fm",
+      "durationHours": 4,
+      "basePrice": 650,
+      "maxParty": 4,
+      "depositPercent": 30,
+      "image": "./images/trips/inshore.jpg",
+      "includes": [
+        "Captain",
+        "Fuel",
+        "Light tackle",
+        "Ice"
+      ],
+      "excludes": [
+        "Gratuity",
+        "Licenses if not covered"
+      ],
+      "description": "Bay and nearshore structure with short steam times \u2014 ideal for families who still want a real Alabama Gulf Coast day without the offshore commitment.",
+      "experiencePromise": "Kid-paced coaching. Shade when possible. Honest calls if wind makes the Pass uncomfortable.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-3",
+      "title": "Offshore Spearfishing Day",
+      "category": "spearfishing",
+      "subtitle": "Credentialed freedive & SCUBA",
+      "operatorId": "op-2",
+      "boatId": "boat-2",
+      "marinaId": "obm",
+      "durationHours": 8,
+      "basePrice": 2200,
+      "maxParty": 6,
+      "depositPercent": 30,
+      "image": "./images/trips/spear.jpg",
+      "includes": [
+        "Captain & dive brief",
+        "Fuel",
+        "Safety oxygen",
+        "Floats"
+      ],
+      "excludes": [
+        "Personal spearguns (rentals available)",
+        "Gratuity"
+      ],
+      "description": "Sister-brand caliber spearfishing through the network. Certs required. Selective shots. Professional standards \u2014 see also Gulf Coast Spearfishing for dedicated spear ops.",
+      "experiencePromise": "Cert card verified. Safety oxygen briefed. No shortcuts on conditions.",
+      "requiresCert": true,
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-4",
+      "title": "Dolphin Eco Cruise",
+      "category": "dolphin",
+      "subtitle": "Naturalist \u00b7 observe & glide",
+      "operatorId": "op-8",
+      "boatId": "boat-8",
+      "marinaId": "wharf",
+      "durationHours": 1.5,
+      "basePrice": 28,
+      "pricePer": "person",
+      "childPrice": 22,
+      "maxParty": 14,
+      "depositPercent": 25,
+      "image": "./images/trips/dolphin.jpg",
+      "includes": [
+        "Naturalist narration",
+        "Life jackets",
+        "Photo tips",
+        "AC salon access"
+      ],
+      "excludes": [
+        "Gratuity",
+        "Snack bar purchases"
+      ],
+      "description": "Family-friendly dolphin watching aligned with public Wharf/Cruise OB pricing bands (~$22\u2013$28 adult). Ethics first: observe, never chase.",
+      "experiencePromise": "Boarding window calm for strollers. Wildlife guidelines briefed before cast-off.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-5",
+      "title": "Private Sunset Champagne Cruise",
+      "category": "sunset",
+      "subtitle": "Golden hour \u00b7 your party only",
+      "operatorId": "op-4",
+      "boatId": "boat-4",
+      "marinaId": "caribe",
+      "durationHours": 2,
+      "basePrice": 650,
+      "maxParty": 12,
+      "depositPercent": 30,
+      "image": "./images/trips/sunset.jpg",
+      "includes": [
+        "Private boat",
+        "Captain",
+        "Soft drinks & ice",
+        "Bluetooth playlist",
+        "Proposal timing support"
+      ],
+      "excludes": [
+        "Champagne (BYOB welcome, no glass on some vessels)"
+      ],
+      "description": "Not a ticketed cattle sunset \u2014 a private quiet-luxury cruise. Soft light, soft seating, crew who know when to disappear.",
+      "experiencePromise": "Proposal protocols available. Weather soft-reroute to back bays if the Gulf is unsettled.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-6",
+      "title": "Jet Ski Coastal Hour",
+      "category": "jetski",
+      "subtitle": "Guided \u00b7 fuel & tax styled all-in feel",
+      "operatorId": "op-5",
+      "boatId": "boat-5",
+      "marinaId": "sanroc",
+      "durationHours": 1,
+      "basePrice": 150,
+      "pricePer": "ski",
+      "maxParty": 3,
+      "depositPercent": 25,
+      "image": "./images/trips/jetski.jpg",
+      "includes": [
+        "Life jackets",
+        "Safety & route brief",
+        "Fuel"
+      ],
+      "excludes": [
+        "Additional hours"
+      ],
+      "description": "Hourly jet ski in the Zeke's/Hudson public band ($95\u2013$150/hr). Network listing emphasizes brief-first safety and no-chase wildlife rules.",
+      "experiencePromise": "You leave the dock only after the brief. Red-flag wind = hold or credit.",
+      "popular": false,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-7",
+      "title": "Parasail Flight",
+      "category": "watersports",
+      "subtitle": "Tandem lift \u00b7 Sportsman corridor",
+      "operatorId": "op-5",
+      "boatId": "boat-5",
+      "marinaId": "sportsman",
+      "durationHours": 1,
+      "basePrice": 85,
+      "pricePer": "person",
+      "maxParty": 3,
+      "depositPercent": 25,
+      "image": "./images/trips/parasail.jpg",
+      "includes": [
+        "Harness",
+        "Brief",
+        "Boat ride"
+      ],
+      "excludes": [
+        "Photo package ($40+)"
+      ],
+      "description": "Classic Orange Beach parasail from ~$85 \u2014 dry takeoff/landing on boat. Observer seats available through ops.",
+      "experiencePromise": "Weather holds without pressure. Photo add-on optional, never pushy.",
+      "popular": false,
+      "cxTier": "standard"
+    },
+    {
+      "id": "trip-8",
+      "title": "Private Catamaran Half-Day",
+      "category": "private",
+      "subtitle": "Exclusive yacht \u00b7 celebrations",
+      "operatorId": "op-6",
+      "boatId": "boat-6",
+      "marinaId": "obm",
+      "durationHours": 4,
+      "basePrice": 1800,
+      "maxParty": 14,
+      "depositPercent": 35,
+      "image": "./images/trips/private.jpg",
+      "includes": [
+        "Captain & mate",
+        "Fuel",
+        "Ice & soft drinks",
+        "Itinerary design call"
+      ],
+      "excludes": [
+        "Catering (preferred vendors on request)"
+      ],
+      "description": "Celebration-ready private boat \u2014 proposals, corporate, multi-family. Quiet luxury pricing for guests who want the day entirely theirs.",
+      "experiencePromise": "48-hour itinerary call. Champagne staging. Mate who anticipates without hovering.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-9",
+      "title": "Zeke's Corridor Offshore 6-Pack",
+      "category": "offshore",
+      "subtitle": "From $1,100 band \u00b7 private feel",
+      "operatorId": "op-1",
+      "boatId": "boat-1",
+      "marinaId": "zekes",
+      "durationHours": 6,
+      "basePrice": 1200,
+      "maxParty": 6,
+      "depositPercent": 30,
+      "image": "./images/trips/offshore.jpg",
+      "includes": [
+        "Captain",
+        "Fuel",
+        "Tackle",
+        "Ice"
+      ],
+      "excludes": [
+        "Fish cleaning (~$0.30/lb typical at marina)",
+        "Gratuity"
+      ],
+      "description": "Inspired by Zeke's Landing public 6-pack bands ($900\u2013$1,500+). Network curated captain \u2014 not a walk-on cattle seat.",
+      "experiencePromise": "Charter office-grade coordination with private-captain stewardship.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-10",
+      "title": "Caribe Shared-Expense Offshore",
+      "category": "offshore",
+      "subtitle": "Per-seat option \u00b7 still curated",
+      "operatorId": "op-9",
+      "boatId": "boat-9",
+      "marinaId": "caribe",
+      "durationHours": 6,
+      "basePrice": 275,
+      "pricePer": "person",
+      "maxParty": 12,
+      "depositPercent": 25,
+      "image": "./images/trips/offshore.jpg",
+      "includes": [
+        "Seat on permitted vessel",
+        "Tackle",
+        "Mate help"
+      ],
+      "excludes": [
+        "Private buyout (ask)",
+        "Gratuity"
+      ],
+      "description": "Shared-expense deep-sea seat from Caribe Marina landscape \u2014 network still screens weather protocol and captain standards.",
+      "experiencePromise": "You are not abandoned at the rail. Mate coaching included.",
+      "popular": false,
+      "cxTier": "standard"
+    },
+    {
+      "id": "trip-11",
+      "title": "Nearshore Spearfishing Half-Day",
+      "category": "spearfishing",
+      "subtitle": "Reefs 3\u201312 miles",
+      "operatorId": "op-1",
+      "boatId": "boat-1",
+      "marinaId": "zekes",
+      "durationHours": 5,
+      "basePrice": 1100,
+      "maxParty": 4,
+      "depositPercent": 30,
+      "image": "./images/trips/spear-alt.jpg",
+      "includes": [
+        "Captain",
+        "Fuel",
+        "Dive brief"
+      ],
+      "excludes": [
+        "Gun rentals"
+      ],
+      "description": "Shorter spear window for certified divers \u2014 network listing with light sister-brand reference for serious spear guests.",
+      "experiencePromise": "Same safety bar as full offshore spear days.",
+      "requiresCert": true,
+      "popular": false,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-12",
+      "title": "Full-Day Private Yacht",
+      "category": "private",
+      "subtitle": "Sunrise to golden hour",
+      "operatorId": "op-6",
+      "boatId": "boat-6",
+      "marinaId": "obm",
+      "durationHours": 8,
+      "basePrice": 3200,
+      "maxParty": 14,
+      "depositPercent": 35,
+      "image": "./images/trips/private.jpg",
+      "includes": [
+        "Captain & mate",
+        "Fuel",
+        "Galley use",
+        "Swim-stop planning"
+      ],
+      "excludes": [
+        "Premium catering"
+      ],
+      "description": "Once-in-a-lifetime full-day private charter \u2014 swim stops, dolphin windows, sunset edge if weather holds.",
+      "experiencePromise": "A keepsake itinerary the night before. Weather stewardship without drama.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-13",
+      "title": "Kids First Inshore Adventure",
+      "category": "inshore",
+      "subtitle": "Patience-first \u00b7 3 hours",
+      "operatorId": "op-7",
+      "boatId": "boat-7",
+      "marinaId": "fm",
+      "durationHours": 3,
+      "basePrice": 475,
+      "maxParty": 4,
+      "depositPercent": 25,
+      "image": "./images/trips/inshore.jpg",
+      "includes": [
+        "Kid rods",
+        "Bait",
+        "PFDs",
+        "Photo help"
+      ],
+      "excludes": [
+        "Gratuity"
+      ],
+      "description": "Designed for young anglers \u2014 shorter day, high coaching, Fort Morgan calm-water preference.",
+      "experiencePromise": "Snacks welcome. Bathroom plan briefed. No eye-rolling at first casts.",
+      "popular": false,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-14",
+      "title": "Twilight Watersports Combo",
+      "category": "watersports",
+      "subtitle": "Tow sports before sunset",
+      "operatorId": "op-5",
+      "boatId": "boat-5",
+      "marinaId": "sanroc",
+      "durationHours": 2,
+      "basePrice": 400,
+      "maxParty": 8,
+      "depositPercent": 25,
+      "image": "./images/trips/watersports.jpg",
+      "includes": [
+        "Tubes & boards",
+        "Captain",
+        "Fuel"
+      ],
+      "excludes": [
+        "Jet ski add-on"
+      ],
+      "description": "Tube, wakeboard, and ski window with a soft sunset edge \u2014 SanRoc Cay departure.",
+      "experiencePromise": "Gear staged and rinsed. Safety brief is non-negotiable.",
+      "popular": false,
+      "cxTier": "standard"
+    },
+    {
+      "id": "trip-15",
+      "title": "Hudson Semi-Private 6-Hour",
+      "category": "offshore",
+      "subtitle": "Limited group \u00b7 higher comfort",
+      "operatorId": "op-10",
+      "boatId": "boat-10",
+      "marinaId": "hudson",
+      "durationHours": 6,
+      "basePrice": 350,
+      "pricePer": "person",
+      "maxParty": 8,
+      "depositPercent": 25,
+      "image": "./images/trips/offshore.jpg",
+      "includes": [
+        "Limited group size",
+        "Tackle",
+        "Mate"
+      ],
+      "excludes": [
+        "Private buyout"
+      ],
+      "description": "Semi-private comfort band inspired by Hudson Marina public offers \u2014 more room than a party boat, curated network captain standards.",
+      "experiencePromise": "Less crowding, clearer coaching, same weather protocol as private days.",
+      "popular": true,
+      "cxTier": "premier"
+    },
+    {
+      "id": "trip-16",
+      "title": "Overnight Rig Expedition",
+      "category": "offshore",
+      "subtitle": "Multi-day bluewater",
+      "operatorId": "op-10",
+      "boatId": "boat-10",
+      "marinaId": "hudson",
+      "durationHours": 24,
+      "basePrice": 4500,
+      "maxParty": 10,
+      "depositPercent": 40,
+      "image": "./images/trips/offshore.jpg",
+      "includes": [
+        "Berths",
+        "Captain & crew",
+        "Fuel estimate disclosed",
+        "Galley"
+      ],
+      "excludes": [
+        "Provisions (list provided)",
+        "Gratuity"
+      ],
+      "description": "For guests who measure trips in bluewater miles \u2014 overnight berths, rig windows, fuel surcharges disclosed before hold.",
+      "experiencePromise": "Written weather gate. Deposit becomes credit on Red cancel. No surprise fuel math.",
+      "popular": false,
+      "cxTier": "premier"
+    }
+  ],
+  "bookings": [
+    {
+      "id": "GCCN-7801",
+      "tripId": "trip-1",
+      "operatorId": "op-3",
+      "boatId": "boat-3",
+      "customerName": "Bradford Sterling",
+      "customerEmail": "bsterling@example.com",
+      "customerPhone": "(205) 555-8819",
+      "tripDate": "2026-09-08",
+      "startTime": "06:00 AM",
+      "partySize": 4,
+      "totalAmount": 1650,
+      "depositPaid": 495,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": true,
+      "weatherStatus": "green",
+      "status": "confirmed",
+      "notes": "Prefer fillet vacuum seal.",
+      "smsTemplate": "green"
+    },
+    {
+      "id": "GCCN-7802",
+      "tripId": "trip-5",
+      "operatorId": "op-4",
+      "boatId": "boat-4",
+      "customerName": "Elena Ruiz",
+      "customerEmail": "elena.ruiz@example.com",
+      "customerPhone": "(404) 555-2201",
+      "tripDate": "2026-09-09",
+      "startTime": "06:30 PM",
+      "partySize": 6,
+      "totalAmount": 650,
+      "depositPaid": 195,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": true,
+      "weatherStatus": "green",
+      "status": "confirmed",
+      "notes": "Proposal \u2014 keep quiet; ring staged.",
+      "smsTemplate": "green"
+    },
+    {
+      "id": "GCCN-7803",
+      "tripId": "trip-4",
+      "operatorId": "op-8",
+      "boatId": "boat-8",
+      "customerName": "Nguyen Family",
+      "customerEmail": "nguyen.family@example.com",
+      "customerPhone": "(713) 555-4410",
+      "tripDate": "2026-09-10",
+      "startTime": "10:00 AM",
+      "partySize": 5,
+      "totalAmount": 128,
+      "depositPaid": 32,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": false,
+      "weatherStatus": "yellow",
+      "status": "confirmed",
+      "notes": "Two kids under 10; stroller.",
+      "smsTemplate": "yellow"
+    },
+    {
+      "id": "GCCN-7804",
+      "tripId": "trip-3",
+      "operatorId": "op-2",
+      "boatId": "boat-2",
+      "customerName": "Jordan Hale",
+      "customerEmail": "jhale@example.com",
+      "customerPhone": "(850) 555-9090",
+      "tripDate": "2026-09-12",
+      "startTime": "06:30 AM",
+      "partySize": 3,
+      "totalAmount": 2200,
+      "depositPaid": 660,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": true,
+      "weatherStatus": "green",
+      "status": "confirmed",
+      "notes": "FII certs on file.",
+      "certVerified": true,
+      "smsTemplate": "green"
+    },
+    {
+      "id": "GCCN-7805",
+      "tripId": "trip-8",
+      "operatorId": "op-6",
+      "boatId": "boat-6",
+      "customerName": "Apex Advisory Retreat",
+      "customerEmail": "events@apex.example",
+      "customerPhone": "(205) 555-1002",
+      "tripDate": "2026-09-15",
+      "startTime": "09:00 AM",
+      "partySize": 10,
+      "totalAmount": 1800,
+      "depositPaid": 630,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": true,
+      "weatherStatus": "green",
+      "status": "confirmed",
+      "notes": "Corporate \u2014 soft drinks only.",
+      "smsTemplate": "green"
+    },
+    {
+      "id": "GCCN-7806",
+      "tripId": "trip-15",
+      "operatorId": "op-10",
+      "boatId": "boat-10",
+      "customerName": "Sam Patel",
+      "customerEmail": "spatel@example.com",
+      "customerPhone": "(615) 555-7730",
+      "tripDate": "2026-09-11",
+      "startTime": "06:00 AM",
+      "partySize": 2,
+      "totalAmount": 700,
+      "depositPaid": 175,
+      "paymentStatus": "deposit_hold",
+      "waiverSigned": true,
+      "weatherStatus": "red",
+      "status": "weather_hold",
+      "notes": "Awaiting reschedule credit.",
+      "smsTemplate": "red"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rv-1",
+      "tripId": "trip-1",
+      "operatorId": "op-3",
+      "guest": "The Caldwell family \u00b7 Birmingham",
+      "rating": 5,
+      "text": "We almost skipped fishing with kids. Captain Troy's crew made it the memory of the whole vacation \u2014 patient, clear, never rushed. This is what premier feels like.",
+      "date": "2026-07-12",
+      "highlight": "Family coaching"
+    },
+    {
+      "id": "rv-2",
+      "tripId": "trip-5",
+      "operatorId": "op-4",
+      "guest": "Elena R.",
+      "rating": 5,
+      "text": "Proposal sunset done right \u2014 quiet, unhurried, perfect light. Crew vanished at the right second. She said yes.",
+      "date": "2026-06-20",
+      "highlight": "Proposal stewardship"
+    },
+    {
+      "id": "rv-3",
+      "tripId": "trip-4",
+      "operatorId": "op-8",
+      "guest": "The Nguyen family",
+      "rating": 5,
+      "text": "Kids saw dolphins without chaos. Naturalist tone we will book again. Boarding was calm \u2014 rare for beach week.",
+      "date": "2026-08-02",
+      "highlight": "Family CX"
+    },
+    {
+      "id": "rv-4",
+      "tripId": "trip-3",
+      "operatorId": "op-2",
+      "guest": "Marcus & Jen",
+      "rating": 5,
+      "text": "Spear day matched Gulf Coast Spearfishing standards we expected \u2014 certs checked, no shortcuts on the yellow morning call.",
+      "date": "2026-05-18",
+      "highlight": "Weather integrity"
+    },
+    {
+      "id": "rv-5",
+      "tripId": "trip-8",
+      "operatorId": "op-6",
+      "guest": "Apex Advisory retreat",
+      "rating": 5,
+      "text": "Private catamaran for eight \u2014 seamless ops, quiet luxury chrome. Itinerary kept us from guessing docks.",
+      "date": "2026-04-09",
+      "highlight": "Corporate polish"
+    },
+    {
+      "id": "rv-6",
+      "tripId": "trip-2",
+      "operatorId": "op-7",
+      "guest": "Claire M.",
+      "rating": 5,
+      "text": "Solid inshore half-day. Honest about wind \u2014 appreciated the yellow call and the SMS. Trust earned.",
+      "date": "2026-07-28",
+      "highlight": "Weather SMS"
+    },
+    {
+      "id": "rv-7",
+      "tripId": "trip-12",
+      "operatorId": "op-6",
+      "guest": "The Orth wedding party",
+      "rating": 5,
+      "text": "Full-day private yacht felt inevitable \u2014 swim stop, dolphin window, golden hour. Keepsake itinerary printed at the condo.",
+      "date": "2026-08-14",
+      "highlight": "Keepsake day"
+    },
+    {
+      "id": "rv-8",
+      "tripId": "trip-9",
+      "operatorId": "op-1",
+      "guest": "Bradford S.",
+      "rating": 5,
+      "text": "Professional from dock to fillet table. Felt like a private club, not a discount aggregator.",
+      "date": "2026-07-01",
+      "highlight": "Premier positioning"
+    }
+  ],
+  "stats": {
+    "operators": 10,
+    "boats": 10,
+    "trips": 16,
+    "marinas": 8,
+    "avgOffshorePrivate": 1450,
+    "dolphinAdultFrom": 28,
+    "jetSkiHourFrom": 150,
+    "parasailFrom": 85,
+    "corridor": "Gulf Shores 36542 \u00b7 Orange Beach 36561 \u00b7 Fort Morgan \u00b7 Perdido",
+    "researchNote": "Pricing bands informed by public 2026 marina menus (Zeke's, Hudson, Caribe, Wharf/Cruise OB, OB Parasail) \u2014 demo inventory, not live third-party bookings."
+  },
+  "operatorApplications": [],
+  "smsTemplates": {
+    "green": "Green light for your GCCN charter tomorrow. Arrive 30 min early with waiver complete. See your itinerary pass for slip & checklist \u2014 we can't wait to host you.",
+    "yellow": "Yellow caution on your GCCN charter. Seas/wind under watch. Final call by 5:30 AM. Deposit protected if we go Red. Check itinerary for updates.",
+    "red": "Red weather call \u2014 we will not risk your day. Your deposit transfers as credit to a new date. Reply with preferred windows; your captain will confirm."
+  }
+}

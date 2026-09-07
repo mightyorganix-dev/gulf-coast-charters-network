@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join the Network | Gulf Coast Charters Network</title>
+  <meta name="description" content="Captain and operator intake — curated join process." />
+  <script type="module" crossorigin src="./assets/operators-C_sR0pam.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/layout-D7o9Jn7H.js">
+  <link rel="stylesheet" crossorigin href="./assets/layout-D_hS2Gss.css">
+</head>
+<body>
+  <div id="site-nav"></div>
+  <header class="page-hero"><div class="container-narrow"><div class="eyebrow">Operator intake</div><h1>Join the network</h1><p>Invitation-first. We curate for guest experience — manifests, weather protocol, and quiet-luxury manners — not for volume.</p></div></header>
+  <main class="page" style="padding-top:0"><div class="container-narrow">
+    <div class="trust-strip" style="border:1px solid var(--line);border-radius:16px;padding:1.25rem;margin-bottom:1.5rem">
+      <ul class="trust-list" style="grid-template-columns:repeat(3,1fr)">
+        <li><strong>USCG licensed</strong><span>Documented Master / OUPV</span></li>
+        <li><strong>Weather protocol</strong><span>Green / Yellow / Red with deposit credit</span></li>
+        <li><strong>Guest CX bar</strong><span>Same emotional standard as sister spear brand</span></li>
+      </ul>
+    </div>
+    <form id="join-form" class="card">
+      <div class="grid-2">
+        <div class="field"><label for="app-name">Captain name</label><input id="app-name" required></div>
+        <div class="field"><label for="app-company">Company</label><input id="app-company" required></div>
+        <div class="field"><label for="app-email">Email</label><input id="app-email" type="email" required></div>
+        <div class="field"><label for="app-phone">Phone</label><input id="app-phone" required></div>
+        <div class="field"><label for="app-marina">Home marina</label><select id="app-marina"></select></div>
+        <div class="field"><label for="app-specialty">Primary specialties</label>
+          <select id="app-specialty">
+            <option>Offshore fishing</option><option>Inshore fishing</option><option>Spearfishing</option>
+            <option>Dolphin / sunset</option><option>Watersports</option><option>Private yacht</option>
+          </select>
+        </div>
+        <div class="field"><label for="app-vessel">Primary vessel</label><input id="app-vessel" placeholder="e.g. 41' sportfisher"></div>
+        <div class="field"><label for="app-uscg">USCG credential</label><input id="app-uscg" placeholder="e.g. 50-Ton Master"></div>
+      </div>
+      <div class="field" style="margin-top:1rem"><label for="app-note">Why guests remember your days</label><textarea id="app-note" rows="4" placeholder="Stewardship examples, celebration protocols, family coaching…"></textarea></div>
+      <button class="btn btn-primary" type="submit" style="margin-top:1rem">Submit application</button>
+    </form>
+    <div id="join-result" style="margin-top:1.25rem"></div>
+  </div></main>
+
+  <div id="site-footer"></div>
+</body>
+</html>

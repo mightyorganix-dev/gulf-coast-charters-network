@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Captain Portal | Gulf Coast Charters Network</title>
+  <meta name="description" content="Manifests, weather Green/Yellow/Red calls, and guest SMS templates." />
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <header class="page-hero"><div class="container"><div class="eyebrow">Operator desk</div><h1>Captain portal</h1><p>Manifests, weather calls, waiver readiness, and simulated guest SMS — the stewardship tools behind premier CX.</p></div></header>
+  <main class="page" style="padding-top:0">
+    <div class="container">
+      <div class="row-between" style="margin-bottom:1.5rem">
+        <div class="field" style="min-width:260px"><label for="captain-select">Acting as</label><select id="captain-select"></select></div>
+        <div class="stat"><div class="label">Upcoming holds</div><div class="value" id="total-charters-count" style="font-size:1.8rem">0</div></div>
+      </div>
+      <div class="card" style="margin-bottom:1.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+        <img id="cap-avatar" class="avatar" alt="">
+        <div>
+          <h2 id="cap-name" style="margin:0;font-size:1.5rem">—</h2>
+          <p id="cap-license" class="muted" style="margin:0.2rem 0">—</p>
+          <p id="cap-boat" style="margin:0;font-size:0.9rem;color:var(--cream)">—</p>
+          <p id="cap-steward" class="muted" style="margin:0.5rem 0 0;font-size:0.85rem;max-width:60ch"></p>
+        </div>
+      </div>
+      <div id="manifest-container"></div>
+    </div>
+  </main>
+  <div id="sms-modal" class="modal hidden">
+    <div class="modal-card">
+      <h3 style="margin-top:0">Guest SMS (simulated)</h3>
+      <p class="muted" id="sms-to" style="font-size:0.85rem"></p>
+      <div class="field"><label>Message</label><textarea id="sms-body" rows="5"></textarea></div>
+      <div class="actions" style="margin-top:1rem">
+        <button type="button" class="btn btn-ghost" id="sms-close">Close</button>
+        <button type="button" class="btn btn-primary" id="sms-send">Queue SMS</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/src/js/captain-portal.js"></script>
+</body>
+</html>

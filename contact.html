@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Gulf Coast Charters Network</title>
+  <meta name="description" content="Network concierge contact for Alabama Gulf Coast charters." />
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <header class="page-hero"><div class="container-narrow"><div class="eyebrow">Concierge</div><h1>Contact</h1><p>Network questions, celebration planning, and operator referrals. Same-day dock issues go through your captain SMS on the itinerary pass.</p></div></header>
+  <main class="page" style="padding-top:0"><div class="container-narrow">
+    <div class="card" style="margin-bottom:1.5rem">
+      <p style="margin:0;color:var(--cream)">concierge@gulfcoastcharters.example · (251) 555-0100</p>
+      <p class="muted" style="margin:0.5rem 0 0;font-size:0.85rem">Gulf Shores · Orange Beach corridor desk · Demo contact</p>
+    </div>
+    <form id="contact-form" class="card">
+      <div class="grid-2">
+        <div class="field"><label>Name</label><input required name="name"></div>
+        <div class="field"><label>Email</label><input required type="email" name="email"></div>
+      </div>
+      <div class="field" style="margin-top:1rem"><label>How can we host you?</label><textarea required name="message" rows="4" placeholder="Dates, party size, trip type, celebration notes…"></textarea></div>
+      <button class="btn btn-primary" type="submit" style="margin-top:1rem">Send to concierge</button>
+    </form>
+    <div id="contact-result" style="margin-top:1rem"></div>
+  </div></main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/src/js/contact.js"></script>
+</body>
+</html>
