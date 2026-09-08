@@ -7,22 +7,38 @@ document.addEventListener('DOMContentLoaded', () => {
   const el = document.getElementById('fleet-stats');
   if (el) {
     el.innerHTML = [
-      ['Operators', stats.operators],
-      ['Vessels', stats.boats],
-      ['Trip products', stats.trips],
+      ['Items', stats.items],
+      ['Resources', stats.resources],
+      ['Channels', stats.channels],
       ['Marinas', stats.marinas],
       ['Avg captain ★', stats.rating],
-      ['Guest promise', 'Once-in-a-lifetime'],
+      ['Guest promise', 'Premier CX'],
     ].map(([label, value]) => `
       <div class="market-stat">
         <div class="label">${label}</div>
         <div class="value">${value}</div>
       </div>`).join('');
   }
-  const featured = store.getTrips().filter((t) => t.popular).slice(0, 6);
-  document.getElementById('featured-trips').innerHTML = featured.map(tripCard).join('');
+
+  const popular = store.getTrips().filter((t) => t.popular).slice(0, 8);
+  const popEl = document.getElementById('popular-trips');
+  if (popEl) popEl.innerHTML = popular.map(tripCard).join('');
+
+  const adventures = store.filterTrips({ group: 'adventures' }).slice(0, 4);
+  const advEl = document.getElementById('adventure-trips');
+  if (advEl) advEl.innerHTML = adventures.map(tripCard).join('');
+
+  const water = store.filterTrips({ group: 'watersports' }).slice(0, 4);
+  const waterEl = document.getElementById('watersport-trips');
+  if (waterEl) waterEl.innerHTML = water.map(tripCard).join('');
+
+  const priv = store.filterTrips({ category: 'private' }).slice(0, 4);
+  const privEl = document.getElementById('private-trips');
+  if (privEl) privEl.innerHTML = priv.map(tripCard).join('');
+
   const caps = store.getOperators().sort((a, b) => b.rating - a.rating).slice(0, 3);
   document.getElementById('featured-captains').innerHTML = caps.map(captainCard).join('');
+
   const reviews = store.getReviews().slice(0, 3);
   document.getElementById('home-reviews').innerHTML = reviews.map((r) => `
     <article class="card review-card">

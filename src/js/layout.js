@@ -3,8 +3,8 @@ import store from './store.js';
 const PAGES = [
   { href: 'index.html', label: 'Home', key: 'home' },
   { href: 'trips.html', label: 'Trips', key: 'trips' },
-  { href: 'captains.html', label: 'Captains', key: 'captains' },
   { href: 'fleet.html', label: 'Fleet', key: 'fleet' },
+  { href: 'captains.html', label: 'Captains', key: 'captains' },
   { href: 'about.html', label: 'About', key: 'about' },
   { href: 'reviews.html', label: 'Reviews', key: 'reviews' },
   { href: 'contact.html', label: 'Contact', key: 'contact' },
@@ -39,12 +39,15 @@ export function categoryLabel(cat) {
   const map = {
     offshore: 'Offshore Fishing',
     inshore: 'Inshore Fishing',
+    shared: 'Shared Fishing',
+    party: 'Party Boat',
     spearfishing: 'Spearfishing',
     dolphin: 'Dolphin Cruise',
     sunset: 'Sunset Cruise',
     jetski: 'Jet Ski',
-    watersports: 'Water Sports',
-    private: 'Private Charter',
+    watersports: 'Parasail & Tow',
+    pontoon: 'Pontoon / Bay',
+    private: 'Private Yacht',
   };
   return map[cat] || cat;
 }
@@ -63,7 +66,7 @@ export function renderNav(active = '') {
         <span class="brand-mark">${LOGO}</span>
         <span class="brand-text">
           <strong>Gulf Coast Charters</strong>
-          <em>Network · AL Gulf Coast</em>
+          <em>Network · AL Outdoor Hub</em>
         </span>
       </a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
@@ -75,7 +78,7 @@ export function renderNav(active = '') {
           ${PORTAL_LINKS.map((l) => `<a href="${l.href}" class="portal-chip">${l.label}</a>`).join('')}
         </div>
         <div class="nav-end">
-          <a href="book.html" class="btn btn-primary nav-cta">Reserve a Charter</a>
+          <a href="book.html" class="btn btn-primary nav-cta">Book a trip</a>
         </div>
       </div>
     </div>`;
@@ -95,17 +98,18 @@ export function renderFooter() {
       <div class="footer-top">
         <div class="footer-brand">
           <strong>Gulf Coast Charters Network</strong>
-          <p>The definitive multi-operator charter marketplace for the Alabama Gulf Coast — quiet luxury, once-in-a-lifetime guest care, curated captains.</p>
-          <p class="muted" style="font-size:0.8rem;margin-top:0.75rem">Gulf Shores 36542 · Orange Beach 36561<br/>Fort Morgan · Perdido · sister brand: Gulf Coast Spearfishing</p>
+          <p>Premier all-activities outdoor hub for the Alabama Gulf Coast — marina-style guest UX, owned inventory spine, once-in-a-lifetime guest care.</p>
+          <p class="muted" style="font-size:0.8rem;margin-top:0.75rem">Gulf Shores 36542 · Orange Beach 36561<br/>Fort Morgan · Perdido</p>
         </div>
         <div class="footer-cols">
           <div>
             <h4>Experience</h4>
-            <a href="trips.html">Trip Catalog</a>
-            <a href="book.html">Reserve a Hold</a>
-            <a href="itinerary.html">Guest Itinerary</a>
-            <a href="reviews.html">Guest Reviews</a>
-            <a href="what-to-bring.html">What to Bring</a>
+            <a href="trips.html?group=fishing">Fishing</a>
+            <a href="trips.html?group=adventures">Adventures</a>
+            <a href="trips.html?group=watersports">Watersports</a>
+            <a href="trips.html?category=private">Private yacht</a>
+            <a href="book.html">Book a hold</a>
+            <a href="itinerary.html">Guest itinerary</a>
           </div>
           <div>
             <h4>Network</h4>
@@ -114,19 +118,26 @@ export function renderFooter() {
             <a href="operators.html">Join the Network</a>
             <a href="about.html">About</a>
             <a href="safety.html">Safety &amp; Weather</a>
+            <a href="reviews.html">Reviews</a>
           </div>
           <div>
             <h4>Portals</h4>
             <a href="captain-portal.html">Captain Portal</a>
             <a href="admin.html">Network Admin</a>
             <a href="faq.html">FAQ</a>
+            <a href="what-to-bring.html">What to Bring</a>
             <a href="contact.html">Contact</a>
           </div>
         </div>
       </div>
+      <p class="footer-sister">
+        <span class="footer-sister-label">Sister brand</span>
+        <a href="https://mightyorganix-dev.github.io/gulf-coast-spearfishing/" rel="noopener noreferrer">Gulf Coast Spearfishing</a>
+        <span class="footer-sister-note">Premier spear specialist — purpose-built vessels &amp; dive stewardship</span>
+      </p>
       <div class="footer-bottom">
         <span>&copy; 2026 Gulf Coast Charters Network · Alabama Gulf Coast</span>
-        <span class="notice-tag">Curated demo · Not a discount aggregator</span>
+        <span class="notice-tag">Owned inventory · Direct web primary</span>
       </div>
     </div>`;
 }
@@ -139,10 +150,15 @@ export function tripCard(t) {
   return `
     <a class="card listing-card" href="trip.html?id=${encodeURIComponent(t.id)}">
       <div class="listing-media" style="--hue:195">${src ? `<img class="listing-photo" src="${src}" alt="">` : ''}</div>
-      <div class="card-kicker">${categoryLabel(t.category)} · ${marina?.name?.replace(' Marina', '') || 'Gulf Coast'}</div>
+      <div class="card-kicker">${categoryLabel(t.category)} · ${marina?.city || 'Gulf Coast'}</div>
       <h3>${t.title}</h3>
       <p>${t.subtitle}</p>
-      <p class="muted" style="font-size:0.78rem;margin:0 0 0.5rem">${op?.name || ''} · up to ${t.maxParty} · ${t.durationHours}h</p>
+      <div class="meta-chips">
+        <span>From ${money(t.basePrice)}${per}</span>
+        <span>${t.durationHours}h</span>
+        <span>Up to ${t.maxParty}</span>
+      </div>
+      <p class="muted" style="font-size:0.78rem;margin:0.55rem 0 0.5rem">${op?.name || ''}</p>
       <div class="row-between">
         <strong style="color:var(--sand)">${money(t.basePrice)}<span class="muted" style="font-weight:400">${per}</span></strong>
         <span class="card-link">View</span>

@@ -4,33 +4,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trip Catalog | Gulf Coast Charters Network</title>
-  <meta name="description" content="Filterable charter catalog — offshore, inshore, spearfishing, dolphin, sunset, jet ski, private yacht." />
+  <meta name="description" content="Filter Items — offshore, inshore, shared, party, dolphin, sunset, jet ski, parasail, pontoon, private yacht, spearfishing." />
   <link rel="stylesheet" href="/src/css/main.css" />
 </head>
 <body>
   <div id="site-nav"></div>
   <header class="page-hero">
     <div class="container">
-      <div class="eyebrow">Curated catalog</div>
+      <div class="eyebrow">Items catalog</div>
       <h1>Trips worth dressing up for</h1>
-      <p>Filter by type, marina, price, and party size. Every listing carries a guest-experience promise — not just a rate.</p>
+      <p>Bookable products with duration, price, capacity, and deposit. Filter by fishing, adventures, watersports, or private yacht.</p>
     </div>
   </header>
   <main class="page" style="padding-top:0">
     <div class="container">
       <div class="filters">
         <div class="field"><label for="f-q">Search</label><input id="f-q" type="search" placeholder="Captain, trip, marina…"></div>
+        <div class="field"><label for="f-group">Hub group</label>
+          <select id="f-group">
+            <option value="all">All groups</option>
+            <option value="fishing">Fishing</option>
+            <option value="adventures">Adventures</option>
+            <option value="watersports">Watersports</option>
+            <option value="private">Private yacht</option>
+            <option value="sister">Spearfishing</option>
+          </select>
+        </div>
         <div class="field"><label for="f-category">Type</label>
           <select id="f-category">
             <option value="all">All types</option>
             <option value="offshore">Offshore fishing</option>
             <option value="inshore">Inshore fishing</option>
+            <option value="shared">Shared fishing</option>
+            <option value="party">Party boat</option>
             <option value="spearfishing">Spearfishing</option>
             <option value="dolphin">Dolphin cruise</option>
             <option value="sunset">Sunset cruise</option>
             <option value="jetski">Jet ski</option>
-            <option value="watersports">Water sports</option>
-            <option value="private">Private charter</option>
+            <option value="watersports">Parasail &amp; tow</option>
+            <option value="pontoon">Pontoon / bay</option>
+            <option value="private">Private yacht</option>
           </select>
         </div>
         <div class="field"><label for="f-marina">Marina</label><select id="f-marina"></select></div>

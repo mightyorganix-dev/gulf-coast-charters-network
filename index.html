@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gulf Coast Charters Network | Premier Alabama Gulf Coast Charters</title>
-  <meta name="description" content="The definitive multi-operator charter marketplace for Gulf Shores, Orange Beach, Fort Morgan & Perdido — quiet luxury, once-in-a-lifetime guest care." />
+  <title>Gulf Coast Charters Network | Alabama Gulf Outdoor Hub</title>
+  <meta name="description" content="Premier Alabama Gulf Coast outdoor hub — fishing, dolphin, sunset, jet ski, parasail, pontoon, private yacht. Owned inventory, guest itinerary, captain portal." />
   <link rel="stylesheet" href="/src/css/main.css" />
 </head>
 <body>
@@ -12,13 +12,13 @@
   <header class="hero">
     <div class="hero-media" aria-hidden="true" style="background-image: linear-gradient(105deg, rgba(7,14,24,0.92) 8%, rgba(7,14,24,0.55) 48%, rgba(7,14,24,0.85) 100%), url('./images/hero/gulf-charter.jpg')"></div>
     <div class="container">
-      <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Gulf Shores 36542 · Orange Beach 36561 · Curated captains</div>
+      <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> Gulf Shores · Orange Beach · Fort Morgan · Perdido</div>
       <h1>The Gulf day <em>of your life.</em></h1>
-      <p class="hero-lead">Gulf Coast Charters Network is the definitive multi-operator marketplace for the Alabama coast — not a discount aggregator. Offshore, inshore, spearfishing, dolphin, sunset, watersports, and private yachts, each stewarded to a once-in-a-lifetime guest standard.</p>
+      <p class="hero-lead">Marina-style outdoor hub with a premier guest standard — private &amp; shared fishing, adventures, watersports, and private yacht. Owned inventory. Keepsake itinerary. Weather integrity.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="trips.html">Browse curated trips</a>
-        <a class="btn btn-ghost" href="book.html">Reserve a hold</a>
-        <a class="btn btn-ghost" href="captains.html">Meet captains</a>
+        <a class="btn btn-primary" href="book.html">Book a trip</a>
+        <a class="btn btn-ghost" href="trips.html">Browse popular trips</a>
+        <a class="btn btn-ghost" href="fleet.html">View fleet</a>
       </div>
     </div>
   </header>
@@ -26,36 +26,98 @@
   <section class="market-strip">
     <div class="container">
       <div class="market-strip-grid" id="fleet-stats"></div>
-      <p class="muted" style="font-size:0.72rem;margin:0.75rem 0 0">Live-feeling network stats from curated demo inventory · Zeke's · Hudson · Caribe · Orange Beach Marina · Wharf corridor</p>
+      <p class="muted" style="font-size:0.72rem;margin:0.75rem 0 0">Items · Resources · Channels · Manifests — owned spine · direct web primary</p>
     </div>
   </section>
 
   <section class="trust-strip">
     <div class="container">
       <ul class="trust-list">
-        <li><strong>Premier, not volume</strong><span>Invitation-grade operators — guest CX over seat count</span></li>
-        <li><strong>Weather integrity</strong><span>Green / Yellow / Red calls with deposit credit on Red</span></li>
-        <li><strong>Keepsake itinerary</strong><span>Boarding pass, marina GPS, ceremonial checklist</span></li>
-        <li><strong>Captain stewardship</strong><span>SMS templates, manifests, waiver readiness</span></li>
-        <li><strong>Sister-brand bar</strong><span>Spearfishing days match Gulf Coast Spearfishing standards</span></li>
+        <li><strong>Premier CX</strong><span>Once-in-a-lifetime guest care — not seat-count volume</span></li>
+        <li><strong>Weather integrity</strong><span>Green / Yellow / Red · deposit credit on Red</span></li>
+        <li><strong>Keepsake itinerary</strong><span>Boarding pass, marina GPS, checklist</span></li>
+        <li><strong>Owned inventory</strong><span>Items + resources on our Stripe deposit path</span></li>
+        <li><strong>Sister spear</strong><span>Gulf Coast Spearfishing premium vertical</span></li>
       </ul>
     </div>
   </section>
 
-  <section class="page">
+  <section class="page hub-section">
     <div class="container">
       <div class="section-title">
-        <h2>Featured once-in-a-lifetime trips</h2>
-        <p>Realistic Orange Beach &amp; Gulf Shores pricing bands. Private 6-packs, dolphin eco cruises, sunset champagne, spearfishing, and yacht days.</p>
+        <h2>Choose your fishing day</h2>
+        <p>Start like a marina desk — offshore for larger fish, inshore for calm family days. Then pick private, shared, or party.</p>
       </div>
-      <div class="card-grid" id="featured-trips"></div>
-      <div style="text-align:center;margin:2rem 0 3rem">
-        <a class="btn btn-primary" href="trips.html">View full catalog</a>
+      <div class="hub-split" id="fishing-split">
+        <a class="hub-tile hub-tile--offshore" href="trips.html?category=offshore">
+          <div class="hub-tile-kicker">Fishing</div>
+          <h3>Offshore private</h3>
+          <p>Reefs, snapper windows, serious steam — private 6-packs and larger vessels.</p>
+          <span class="card-link">Browse offshore</span>
+        </a>
+        <a class="hub-tile hub-tile--inshore" href="trips.html?category=inshore">
+          <div class="hub-tile-kicker">Fishing</div>
+          <h3>Inshore private</h3>
+          <p>Back bays and shoreline — ideal for kids and guests who prefer a smoother ride.</p>
+          <span class="card-link">Browse inshore</span>
+        </a>
       </div>
+      <div class="hub-mini-row">
+        <a class="hub-mini" href="trips.html?category=shared">Shared-expense seats</a>
+        <a class="hub-mini" href="trips.html?category=party">Party boat days</a>
+        <a class="hub-mini" href="trips.html?group=fishing">All fishing</a>
+      </div>
+    </div>
+  </section>
 
+  <section class="page hub-section hub-section--tight">
+    <div class="container">
+      <div class="section-title">
+        <h2>Popular trips &amp; cruises</h2>
+        <p>Mixed catalog — fishing, dolphin, sunset, jet ski, pontoon, yacht — with From-price, duration, and capacity at a glance.</p>
+      </div>
+      <div class="card-grid" id="popular-trips"></div>
+      <div style="text-align:center;margin:1.5rem 0 0">
+        <a class="btn btn-primary" href="trips.html">Full catalog</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page hub-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Adventures</h2>
+        <p>Dolphin eco cruises and private sunset charters — calm water, cameras ready.</p>
+      </div>
+      <div class="card-grid" id="adventure-trips"></div>
+    </div>
+  </section>
+
+  <section class="page hub-section hub-section--tight">
+    <div class="container">
+      <div class="section-title">
+        <h2>Watersports</h2>
+        <p>Jet ski hours, parasail flights, and bay pontoon — brief-first safety culture.</p>
+      </div>
+      <div class="card-grid" id="watersport-trips"></div>
+    </div>
+  </section>
+
+  <section class="page hub-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Private yacht</h2>
+        <p>Celebrations and corporate days — the boat, and the silence, entirely yours.</p>
+      </div>
+      <div class="card-grid" id="private-trips"></div>
+    </div>
+  </section>
+
+  <section class="page hub-section hub-section--tight">
+    <div class="container">
       <div class="section-title">
         <h2>Steward captains</h2>
-        <p>Owner-operators and legacy desks screened for manners, weather honesty, and guest coaching — the emotional bar of a premier day.</p>
+        <p>Resources behind every Item — USCG-literate operators screened for manners and weather honesty.</p>
       </div>
       <div class="card-grid" id="featured-captains"></div>
 
@@ -65,11 +127,33 @@
       </div>
       <div class="card-grid" id="home-reviews"></div>
 
+      <div class="ecosystem-strip" id="ecosystem-strip">
+        <div class="section-title">
+          <h2>Dock-life energy</h2>
+          <p>Original-brand coastal lifestyle strip — provisioning, waterfront dining partners, celebration venues. No competitor trademarks.</p>
+        </div>
+        <div class="eco-grid">
+          <article class="eco-card"><h3>Dock provisioning</h3><p>Ice, snacks, sunscreen, and last-minute cooler fills near boarding — partner desks vary by marina.</p></article>
+          <article class="eco-card"><h3>Waterfront dining</h3><p>Hook-and-cook style partners and sunset tables after the fillet cooler lands.</p></article>
+          <article class="eco-card"><h3>Celebration venues</h3><p>Group events and private yacht days that spill into shore-side celebrations.</p></article>
+        </div>
+      </div>
+
+      <aside class="card sister-card" style="margin:3rem auto 0;text-align:left">
+        <div class="card-kicker">Sister premium vertical</div>
+        <h3>Premier spearfishing</h3>
+        <p>Credentialed freedive &amp; SCUBA days with purpose-built vessels and dive stewardship. Network lists spear Items; the specialist brand is Gulf Coast Spearfishing.</p>
+        <div class="hero-actions" style="margin-top:1rem">
+          <a class="btn btn-ghost" href="trips.html?category=spearfishing">Spear trips on the hub</a>
+          <a class="card-link" href="https://mightyorganix-dev.github.io/gulf-coast-spearfishing/" rel="noopener noreferrer">Gulf Coast Spearfishing →</a>
+        </div>
+      </aside>
+
       <div class="teaser-row">
-        <a class="teaser" href="safety.html"><strong>Weather protocol</strong><span>Green · Yellow · Red — captain authority final</span></a>
-        <a class="teaser" href="itinerary.html"><strong>Itinerary pass</strong><span>Lookup GCCN-7801 keepsake ticket</span></a>
-        <a class="teaser" href="faq.html"><strong>Guest FAQ</strong><span>Deposits, tips, licenses, kids, alcohol</span></a>
-        <a class="teaser" href="operators.html"><strong>Join the network</strong><span>Captain intake — curated, not open flood</span></a>
+        <a class="teaser" href="book.html"><strong>Book + deposit</strong><span>Hold the date · Stripe path ready</span></a>
+        <a class="teaser" href="itinerary.html"><strong>Guest itinerary</strong><span>Lookup GCCN-7801 keepsake pass</span></a>
+        <a class="teaser" href="captain-portal.html"><strong>Captain portal</strong><span>Manifests · weather SMS</span></a>
+        <a class="teaser" href="admin.html"><strong>Admin spine</strong><span>Items · Resources · Channels</span></a>
       </div>
     </div>
   </section>

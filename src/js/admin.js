@@ -6,31 +6,62 @@ document.addEventListener('DOMContentLoaded', () => {
   const rev = store.revenueSnapshot();
   const stats = store.fleetStats();
   document.getElementById('admin-stats').innerHTML = [
-    ['Network holds', rev.bookings],
+    ['Manifests', rev.bookings],
     ['Gross pipeline', money(rev.gross)],
     ['Deposits held', money(rev.deposits)],
-    ['Avg booking', money(rev.avg)],
-    ['Operators', stats.operators],
-    ['Boats', stats.boats],
+    ['Items', stats.items],
+    ['Resources', stats.resources],
+    ['Channels', stats.channels],
   ].map(([l, v]) => `<div class="stat"><div class="label">${l}</div><div class="value" style="font-size:1.55rem">${v}</div></div>`).join('');
+
+  document.getElementById('admin-channels').innerHTML = `
+    <div class="table-wrap"><table>
+      <thead><tr><th>Channel</th><th>Code</th><th>Status</th><th>Commission</th><th>Notes</th></tr></thead>
+      <tbody>
+        ${store.getChannels().map((c) => `<tr>
+          <td>${c.name}</td>
+          <td><code>${c.code}</code></td>
+          <td>${c.status}</td>
+          <td>${c.commissionPercent == null ? '—' : c.commissionPercent + '%'}</td>
+          <td>${c.notes || ''}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>`;
 
   const bookings = store.getBookings();
   document.getElementById('admin-bookings').innerHTML = `
     <div class="table-wrap"><table>
-      <thead><tr><th>Ref</th><th>Guest</th><th>Trip</th><th>Date</th><th>Weather</th><th>Deposit</th><th>Status</th></tr></thead>
+      <thead><tr><th>Ref</th><th>Guest</th><th>Item</th><th>Date</th><th>Channel</th><th>Weather</th><th>Deposit</th><th>Status</th></tr></thead>
       <tbody>
         ${bookings.map((b) => {
-          const t = store.getTripById(b.tripId);
+          const t = store.getItemById(b.tripId);
+          const ch = store.getChannels().find((c) => c.id === (b.channelId || 'ch-direct'));
           return `<tr>
             <td><a href="itinerary.html?id=${b.id}">${b.id}</a></td>
             <td>${b.customerName}</td>
             <td>${t?.title || b.tripId}</td>
             <td>${b.tripDate}</td>
+            <td>${ch?.code || 'direct_web'}</td>
             <td>${b.weatherStatus}</td>
             <td>${money(b.depositPaid)}</td>
             <td>${b.status}</td>
           </tr>`;
         }).join('')}
+      </tbody>
+    </table></div>`;
+
+  document.getElementById('admin-items').innerHTML = `
+    <div class="table-wrap"><table>
+      <thead><tr><th>Item</th><th>Category</th><th>Duration</th><th>Capacity</th><th>From</th><th>Deposit %</th></tr></thead>
+      <tbody>
+        ${store.getItems().map((t) => `<tr>
+          <td><a href="trip.html?id=${t.id}">${t.title}</a></td>
+          <td>${categoryLabel(t.category)}</td>
+          <td>${t.durationHours}h</td>
+          <td>${t.maxParty}</td>
+          <td>${money(t.basePrice)}${t.pricePer ? ' / ' + t.pricePer : ''}</td>
+          <td>${t.depositPercent}%</td>
+        </tr>`).join('')}
       </tbody>
     </table></div>`;
 

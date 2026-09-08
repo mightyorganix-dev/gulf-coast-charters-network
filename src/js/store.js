@@ -11,7 +11,10 @@ const KEYS = {
   stats: 'gccn_stats',
   cx: 'gccn_cx',
   sms: 'gccn_sms',
-  seed: 'gccn_seed_v2',
+  channels: 'gccn_channels',
+  ia: 'gccn_ia',
+  spine: 'gccn_spine',
+  seed: 'gccn_seed_v3',
 };
 
 class CharterNetworkStore {
@@ -20,7 +23,7 @@ class CharterNetworkStore {
   }
 
   init() {
-    if (localStorage.getItem(KEYS.seed) !== '2') {
+    if (localStorage.getItem(KEYS.seed) !== '3') {
       localStorage.setItem(KEYS.operators, JSON.stringify(seed.operators));
       localStorage.setItem(KEYS.boats, JSON.stringify(seed.boats));
       localStorage.setItem(KEYS.trips, JSON.stringify(seed.trips));
@@ -31,7 +34,10 @@ class CharterNetworkStore {
       localStorage.setItem(KEYS.stats, JSON.stringify(seed.stats));
       localStorage.setItem(KEYS.cx, JSON.stringify(seed.cx));
       localStorage.setItem(KEYS.sms, JSON.stringify(seed.smsTemplates || {}));
-      localStorage.setItem(KEYS.seed, '2');
+      localStorage.setItem(KEYS.channels, JSON.stringify(seed.channels || []));
+      localStorage.setItem(KEYS.ia, JSON.stringify(seed.ia || {}));
+      localStorage.setItem(KEYS.spine, JSON.stringify(seed.spine || {}));
+      localStorage.setItem(KEYS.seed, '3');
     }
   }
 
@@ -50,6 +56,34 @@ class CharterNetworkStore {
   getBoatById(id) { return this.getBoats().find((b) => String(b.id) === String(id)); }
   getTrips() { return this._get(KEYS.trips); }
   getTripById(id) { return this.getTrips().find((t) => String(t.id) === String(id)); }
+
+  /** Items = bookable products (FareHarbor-class concept, owned inventory) */
+  getItems() { return this.getTrips(); }
+  getItemById(id) { return this.getTripById(id); }
+
+  /** Resources = boats + captains (shared capacity spine) */
+  getResources() {
+    return {
+      boats: this.getBoats(),
+      operators: this.getOperators(),
+    };
+  }
+
+  getChannels() {
+    try { return JSON.parse(localStorage.getItem(KEYS.channels) || '[]'); }
+    catch { return seed.channels || []; }
+  }
+
+  getIa() {
+    try { return JSON.parse(localStorage.getItem(KEYS.ia) || '{}'); }
+    catch { return seed.ia || {}; }
+  }
+
+  getSpine() {
+    try { return JSON.parse(localStorage.getItem(KEYS.spine) || '{}'); }
+    catch { return seed.spine || {}; }
+  }
+
   getBookings() { return this._get(KEYS.bookings); }
   getBookingById(id) {
     return this.getBookings().find((b) => String(b.id).toLowerCase() === String(id).toLowerCase());
@@ -71,8 +105,15 @@ class CharterNetworkStore {
     catch { return seed.smsTemplates || {}; }
   }
 
-  filterTrips({ category, marina, maxPrice, party, q } = {}) {
+  filterTrips({ category, marina, maxPrice, party, q, group } = {}) {
+    const ia = this.getIa();
+    let cats = null;
+    if (group && ia.groups) {
+      const g = ia.groups.find((x) => x.id === group);
+      if (g) cats = new Set(g.categories);
+    }
     return this.getTrips().filter((t) => {
+      if (cats && !cats.has(t.category)) return false;
       if (category && category !== 'all' && t.category !== category) return false;
       if (marina && marina !== 'all' && t.marinaId !== marina) return false;
       if (maxPrice && Number(t.basePrice) > Number(maxPrice)) return false;
@@ -87,12 +128,19 @@ class CharterNetworkStore {
     });
   }
 
+  resourceUsage(resourceId) {
+    return this.getBookings().filter((b) =>
+      String(b.boatId) === String(resourceId) || String(b.operatorId) === String(resourceId)
+    );
+  }
+
   addBooking(data) {
     const rows = this.getBookings();
     const id = 'GCCN-' + Math.floor(7800 + Math.random() * 1200);
     const row = {
       ...data,
       id,
+      channelId: data.channelId || 'ch-direct',
       createdAt: new Date().toISOString(),
       weatherStatus: data.weatherStatus || 'green',
       status: data.status || 'confirmed',
@@ -133,11 +181,15 @@ class CharterNetworkStore {
   }
 
   fleetStats() {
+    const channels = this.getChannels();
     return {
       operators: this.getOperators().filter((o) => o.status === 'active').length,
       boats: this.getBoats().filter((b) => b.status === 'active').length,
       trips: this.getTrips().length,
+      items: this.getItems().length,
       marinas: this.getMarinas().length,
+      channels: channels.length,
+      resources: this.getBoats().length + this.getOperators().length,
       rating: (
         this.getOperators().reduce((s, o) => s + (o.rating || 0), 0) / Math.max(1, this.getOperators().length)
       ).toFixed(2),
