@@ -8,13 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const stats = store.fleetStats();
   const el = document.getElementById('fleet-stats');
   if (el) {
+    const pops = store.getTrips().filter((x) => x.popular);
+    const aov = pops.length
+      ? Math.round(pops.reduce((s, x) => s + (x.basePrice || 0), 0) / pops.length)
+      : 900;
     el.innerHTML = [
+      ['Premier AOV', '$' + aov.toLocaleString()],
+      ['Private-first', 'Curated'],
       ['Items', stats.items],
       ['Resources', stats.resources],
-      ['Channels', stats.channels],
       ['Marinas', stats.marinas],
-      ['Avg captain ★', stats.rating],
-      ['Guest promise', 'Premier CX'],
+      ['Guest promise', 'Once-in-a-lifetime'],
     ].map(([label, value]) => `
       <div class="market-stat">
         <div class="label">${label}</div>

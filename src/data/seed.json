@@ -1,12 +1,13 @@
 {
-  "version": 5,
+  "version": 6,
   "brand": "Gulf Coast Charters Network",
   "cx": {
-    "promise": "Every Gulf day is treated as once-in-a-lifetime \u2014 curated captains, weather integrity, keepsake itinerary, and a full outdoor catalog: fishing, adventures, watersports, and private yacht.",
+    "promise": "Once-in-a-lifetime private days \u2014 not seat-count volume.",
     "weatherProtocol": "Green = proceed. Yellow = stand by for morning call. Red = cancel/reschedule; deposit transfers as credit.",
     "depositNote": "Deposits hold the date (typically 25\u201340%). Stripe checkout scaffolded but disabled until secrets are set.",
-    "notAggregator": "Gulf Coast Charters Network is not a discount seat marketplace. We curate operators to a premier guest-experience bar.",
-    "hubNote": "All-activities hub inspired by marina IA patterns (fishing split \u00b7 popular grid \u00b7 adventures \u00b7 watersports) \u2014 original brand, not a competitor clone."
+    "notAggregator": "Curated captains. No coupon desks. No race-to-bottom pricing.",
+    "hubNote": "Alabama Gulf Coast flagship \u2014 model built to clone to other premier coastal markets.",
+    "aovPath": "High-AOV mix: private offshore & inshore, yacht, spearfishing, sunset celebrations. Target blended AOV $900\u2013950."
   },
   "marinas": [
     {
@@ -588,12 +589,12 @@
       "id": "trip-2",
       "title": "Half-Day Inshore Classic",
       "category": "inshore",
-      "subtitle": "Redfish, trout & nearshore structure",
+      "subtitle": "Private bay boat \u00b7 family premier",
       "operatorId": "op-7",
       "boatId": "boat-7",
       "marinaId": "fm",
       "durationHours": 4,
-      "basePrice": 650,
+      "basePrice": 750,
       "maxParty": 4,
       "depositPercent": 30,
       "image": "./images/trips/inshore.jpg?v=5",
@@ -610,7 +611,7 @@
       "description": "Bay and nearshore structure with short steam times \u2014 ideal for families who still want a real Alabama Gulf Coast day without the offshore commitment.",
       "experiencePromise": "Kid-paced coaching. Shade when possible. Honest calls if wind makes the Pass uncomfortable.",
       "popular": true,
-      "cxTier": "premier",
+      "cxTier": "select",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -686,8 +687,8 @@
       ],
       "description": "Family-friendly dolphin watching aligned with public Wharf/Cruise OB pricing bands (~$22\u2013$28 adult). Ethics first: observe, never chase.",
       "experiencePromise": "Boarding window calm for strollers. Wildlife guidelines briefed before cast-off.",
-      "popular": true,
-      "cxTier": "premier",
+      "popular": false,
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -707,7 +708,7 @@
       "boatId": "boat-4",
       "marinaId": "caribe",
       "durationHours": 2,
-      "basePrice": 650,
+      "basePrice": 950,
       "maxParty": 12,
       "depositPercent": 30,
       "image": "./images/trips/sunset.jpg?v=5",
@@ -760,7 +761,7 @@
       "description": "Hourly jet ski in the coastal public band ($95\u2013$150/hr). Network listing emphasizes brief-first safety and no-chase wildlife rules.",
       "experiencePromise": "You leave the dock only after the brief. Red-flag wind = hold or credit.",
       "popular": false,
-      "cxTier": "premier",
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -796,7 +797,7 @@
       "description": "Classic Orange Beach parasail from ~$85 \u2014 dry takeoff/landing on boat. Observer seats available through ops.",
       "experiencePromise": "Weather holds without pressure. Photo add-on optional, never pushy.",
       "popular": false,
-      "cxTier": "standard",
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -816,7 +817,7 @@
       "boatId": "boat-6",
       "marinaId": "obm",
       "durationHours": 4,
-      "basePrice": 1800,
+      "basePrice": 2100,
       "maxParty": 14,
       "depositPercent": 35,
       "image": "./images/trips/private.jpg?v=5",
@@ -905,8 +906,8 @@
       ],
       "description": "Shared-expense deep-sea seat from Caribe Marina landscape \u2014 network still screens weather protocol and captain standards.",
       "experiencePromise": "You are not abandoned at the rail. Mate coaching included.",
-      "popular": true,
-      "cxTier": "standard",
+      "popular": false,
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -941,7 +942,7 @@
       "description": "Shorter spear window for certified divers \u2014 network listing with light sister-brand reference for serious spear guests.",
       "experiencePromise": "Same safety bar as full offshore spear days.",
       "requiresCert": true,
-      "popular": false,
+      "popular": true,
       "cxTier": "premier",
       "itemType": "experience",
       "channelIds": [
@@ -998,7 +999,7 @@
       "boatId": "boat-7",
       "marinaId": "fm",
       "durationHours": 3,
-      "basePrice": 475,
+      "basePrice": 650,
       "maxParty": 4,
       "depositPercent": 25,
       "image": "./images/trips/inshore.jpg?v=5",
@@ -1014,7 +1015,7 @@
       "description": "Designed for young anglers \u2014 shorter day, high coaching, Fort Morgan calm-water preference.",
       "experiencePromise": "Snacks welcome. Bathroom plan briefed. No eye-rolling at first casts.",
       "popular": false,
-      "cxTier": "premier",
+      "cxTier": "select",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -1049,7 +1050,7 @@
       "description": "Tube, wakeboard, and ski window with a soft sunset edge \u2014 SanRoc Cay departure.",
       "experiencePromise": "Gear staged and rinsed. Safety brief is non-negotiable.",
       "popular": false,
-      "cxTier": "standard",
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -1084,8 +1085,8 @@
       ],
       "description": "Semi-private comfort band inspired by Hudson Marina public offers \u2014 more room than a party boat, curated network captain standards.",
       "experiencePromise": "Less crowding, clearer coaching, same weather protocol as private days.",
-      "popular": true,
-      "cxTier": "premier",
+      "popular": false,
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -1121,7 +1122,7 @@
       ],
       "description": "For guests who measure trips in bluewater miles \u2014 overnight berths, rig windows, fuel surcharges disclosed before hold.",
       "experiencePromise": "Written weather gate. Deposit becomes credit on Red cancel. No surprise fuel math.",
-      "popular": false,
+      "popular": true,
       "cxTier": "premier",
       "itemType": "experience",
       "channelIds": [
@@ -1161,8 +1162,8 @@
       ],
       "description": "Walk-on party fishing for guests who want the Gulf without a private boat bill. Curated network standards \u2014 coaching at the rail, weather protocol still applies.",
       "experiencePromise": "Clear boarding window. Kid-friendly coaching when requested. Weather Red = credit, not pressure.",
-      "popular": true,
-      "cxTier": "standard",
+      "popular": false,
+      "cxTier": "discovery",
       "itemType": "experience",
       "channelIds": [
         "ch-direct",
@@ -1182,7 +1183,7 @@
       "boatId": "boat-4",
       "marinaId": "caribe",
       "durationHours": 2,
-      "basePrice": 550,
+      "basePrice": 900,
       "maxParty": 12,
       "depositPercent": 30,
       "image": "./images/trips/pontoon.jpg?v=5",
@@ -1198,7 +1199,7 @@
       ],
       "description": "Private pontoon for families and celebrations \u2014 calm back-bay steam, optional dolphin window, soft seating and shade.",
       "experiencePromise": "Shade staged. Kid PFDs ready. Soft reroute if the Pass is rough.",
-      "popular": true,
+      "popular": false,
       "cxTier": "premier",
       "itemType": "experience",
       "channelIds": [
@@ -1433,7 +1434,9 @@
     "sunsetPrivateFrom": 600,
     "channels": 3,
     "items": 18,
-    "resources": 20
+    "resources": 20,
+    "positioning": "High-AOV premier network",
+    "targetAov": 900
   },
   "operatorApplications": [],
   "smsTemplates": {
@@ -1469,18 +1472,35 @@
   ],
   "ia": {
     "brand": "Gulf Coast Charters Network",
-    "tagline": "The Gulf day of your life.",
+    "tagline": "Private Gulf days. Premier by design.",
     "groups": [
       {
-        "id": "fishing",
-        "label": "Fishing",
+        "id": "private",
+        "label": "Private & Yacht",
         "categories": [
+          "private",
           "offshore",
-          "inshore",
-          "shared",
-          "party"
+          "inshore"
         ],
-        "blurb": "Private offshore & inshore, shared-expense seats, party boat days."
+        "blurb": "Private 6-packs, inshore family days, and exclusive yacht charter."
+      },
+      {
+        "id": "spearfishing",
+        "label": "Spearfishing",
+        "categories": [
+          "spearfishing"
+        ],
+        "blurb": "Sister-brand credentialed spear days \u2014 freedive & SCUBA."
+      },
+      {
+        "id": "celebrations",
+        "label": "Celebrations",
+        "categories": [
+          "sunset",
+          "pontoon",
+          "private"
+        ],
+        "blurb": "Sunset champagne, bay pontoon buyouts, proposal and reunion days."
       },
       {
         "id": "adventures",
@@ -1489,33 +1509,27 @@
           "dolphin",
           "sunset"
         ],
-        "blurb": "Dolphin eco cruises and private golden-hour charters."
+        "blurb": "Dolphin and golden-hour \u2014 curated, not cattle-boat."
       },
       {
         "id": "watersports",
         "label": "Watersports",
         "categories": [
           "jetski",
-          "watersports",
-          "pontoon"
+          "watersports"
         ],
-        "blurb": "Jet ski, parasail, and bay pontoon."
+        "blurb": "Discovery add-ons \u2014 never the brand center."
       },
       {
-        "id": "private",
-        "label": "Private yacht",
+        "id": "fishing",
+        "label": "All Fishing",
         "categories": [
-          "private"
+          "offshore",
+          "inshore",
+          "shared",
+          "party"
         ],
-        "blurb": "Exclusive celebrations and corporate days."
-      },
-      {
-        "id": "sister",
-        "label": "Spearfishing",
-        "categories": [
-          "spearfishing"
-        ],
-        "blurb": "Sister premium vertical \u2014 Gulf Coast Spearfishing."
+        "blurb": "Full fishing catalog \u2014 premier private listed first."
       }
     ]
   },
@@ -1527,6 +1541,8 @@
     ],
     "manifests": "bookings",
     "channels": "channels",
-    "note": "Owned inventory spine inspired by scalable booking platforms (Items \u00b7 Resources \u00b7 Channels \u00b7 Manifests). Not FareHarbor-hosted."
+    "note": "Items/Resources/Channels designed to replicate per coastal market.",
+    "cloneReady": true,
+    "flagshipMarket": "Alabama Gulf Coast"
   }
 }

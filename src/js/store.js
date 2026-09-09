@@ -14,7 +14,7 @@ const KEYS = {
   channels: 'gccn_channels',
   ia: 'gccn_ia',
   spine: 'gccn_spine',
-  seed: 'gccn_seed_v5',
+  seed: 'gccn_seed_v6',
 };
 
 class CharterNetworkStore {
@@ -23,7 +23,7 @@ class CharterNetworkStore {
   }
 
   init() {
-    if (localStorage.getItem(KEYS.seed) !== '5') {
+    if (localStorage.getItem(KEYS.seed) !== '6') {
       localStorage.setItem(KEYS.operators, JSON.stringify(seed.operators));
       localStorage.setItem(KEYS.boats, JSON.stringify(seed.boats));
       localStorage.setItem(KEYS.trips, JSON.stringify(seed.trips));
@@ -37,7 +37,7 @@ class CharterNetworkStore {
       localStorage.setItem(KEYS.channels, JSON.stringify(seed.channels || []));
       localStorage.setItem(KEYS.ia, JSON.stringify(seed.ia || {}));
       localStorage.setItem(KEYS.spine, JSON.stringify(seed.spine || {}));
-      localStorage.setItem(KEYS.seed, '5');
+      localStorage.setItem(KEYS.seed, '6');
     }
   }
 

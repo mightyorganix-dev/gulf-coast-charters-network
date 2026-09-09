@@ -33,3 +33,8 @@ Spearfishing is a single-operator spear charter brand (species, certs, dive-forw
 GCCN is a network marketplace: many captains/boats/trip types; operators run manifests;
 admin runs platform revenue; guests filter a curated catalog across fishing, dolphin,
 sunset, watersports, and private yacht — with light sister-brand reference on spear products only.
+
+## Product strategy (live)
+- **High-AOV path:** private / yacht / spearfishing / celebrations — target blended AOV ~$900–950.
+- **Flagship market:** Alabama Gulf Coast; **Items / Resources / Channels** spine is clone-ready for other coastal markets.
+- Watersports remain discovery add-ons, not the brand center.
