@@ -15,6 +15,7 @@ const KEYS = {
   ia: 'gccn_ia',
   spine: 'gccn_spine',
   availability: 'gccn_availability',
+  operatorPackets: 'gccn_operator_packets',
   seed: 'gccn_seed_v7',
 };
 
@@ -251,6 +252,30 @@ class CharterNetworkStore {
     const row = { ...data, id, createdAt: new Date().toISOString(), status: 'pending' };
     rows.unshift(row);
     this._set(KEYS.applications, rows);
+    return row;
+  }
+
+
+  getOperatorPackets() {
+    try {
+      const raw = localStorage.getItem(KEYS.operatorPackets);
+      return raw ? JSON.parse(raw) : [];
+    } catch {
+      return [];
+    }
+  }
+
+  addOperatorPacket(data) {
+    const rows = this.getOperatorPackets();
+    const id = 'PKT-' + Math.floor(1000 + Math.random() * 9000);
+    const row = {
+      ...data,
+      id,
+      createdAt: new Date().toISOString(),
+      status: data.status || 'submitted',
+    };
+    rows.unshift(row);
+    this._set(KEYS.operatorPackets, rows);
     return row;
   }
 

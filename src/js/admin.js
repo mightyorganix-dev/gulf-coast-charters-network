@@ -123,6 +123,40 @@ document.addEventListener('DOMContentLoaded', () => {
     </table></div>
     <p class="muted" style="font-size:0.82rem;margin-top:0.75rem">Availability = per-captain blockedDates + active bookings (whole-boat day). Guests see open dates on trip &amp; book flows.</p>`;
 
+
+  const packets = store.getOperatorPackets();
+  document.getElementById('admin-packets').innerHTML = packets.length
+    ? `<div class="table-wrap"><table>
+        <thead><tr><th>ID</th><th>Operator</th><th>Vessel</th><th>Trip</th><th>Submitted</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+          ${packets.map((p) => {
+            const a = p.agreement || {};
+            const adn = p.addendum || {};
+            return `<tr>
+              <td>${p.id}</td>
+              <td>${a.operatorName || '—'}</td>
+              <td>${a.vessel || '—'}</td>
+              <td>${adn.tripTitle || '—'}</td>
+              <td>${(p.createdAt || '').slice(0, 10)}</td>
+              <td><span class="badge badge-warn">${p.statusLabel || p.status || 'Under review'}</span></td>
+              <td><button type="button" class="btn btn-ghost btn-sm" data-packet='${p.id}'>View JSON</button></td>
+            </tr>`;
+          }).join('')}
+        </tbody></table></div>
+        <p class="muted" style="font-size:0.82rem;margin-top:0.75rem">Applications only — never auto clear-to-list. Countersignature and listing activation are manual.</p>`
+    : `<p class="muted">No operator packet applications yet. <a href="operator-packet.html">Open packet</a></p>`;
+
+  document.getElementById('admin-packets')?.querySelectorAll('[data-packet]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const row = packets.find((x) => x.id === btn.dataset.packet);
+      if (!row) return;
+      const w = window.open('', '_blank');
+      if (!w) return;
+      w.document.write(`<pre style="white-space:pre-wrap;font:12px/1.4 ui-monospace,monospace;padding:1rem">${JSON.stringify(row, null, 2).replace(/</g, '&lt;')}</pre>`);
+      w.document.close();
+    });
+  });
+
   const apps = store.getApplications();
   document.getElementById('admin-apps').innerHTML = apps.length
     ? `<div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Marina</th><th>Status</th></tr></thead><tbody>

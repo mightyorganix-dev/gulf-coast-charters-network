@@ -123,6 +123,7 @@ export function renderFooter() {
           <div>
             <h4>Portals</h4>
             <a href="captain-portal.html">Captain Portal</a>
+            <a href="operator-packet.html">Operator packet</a>
             <a href="admin.html">Network Admin</a>
             <a href="faq.html">FAQ</a>
             <a href="what-to-bring.html">What to Bring</a>

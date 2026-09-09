@@ -23,6 +23,7 @@ export default defineConfig({
         contact: resolve(__dirname, "contact.html"),
         reviews: resolve(__dirname, "reviews.html"),
         operators: resolve(__dirname, "operators.html"),
+        operatorPacket: resolve(__dirname, "operator-packet.html"),
       },
     },
   },
