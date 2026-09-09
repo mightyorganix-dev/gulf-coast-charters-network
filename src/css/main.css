@@ -353,7 +353,7 @@ p { margin: 0 0 1em; color: var(--muted); }
   border-bottom: 1px solid var(--line);
   isolation: isolate;
 }
-.hero-media {
+.hero:not(.hero--cinematic) .hero-media {
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -1025,3 +1025,88 @@ th { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color
 .eco-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 1.2rem 1.15rem; background: rgba(16, 28, 46, 0.55); }
 .eco-card h3 { font-size: 1.2rem; margin-bottom: 0.35rem; }
 .eco-card p { margin: 0; font-size: 0.88rem; }
+
+
+/* —— Cinematic hero video —— */
+.hero--cinematic {
+  min-height: clamp(28rem, 72vh, 42rem);
+  display: flex;
+  align-items: flex-end;
+  padding: 6.5rem 0 4.5rem;
+}
+.hero--cinematic .container { position: relative; z-index: 2; }
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background:
+    linear-gradient(160deg, #07101c 0%, #0d2438 45%, #07101c 100%);
+}
+.hero-video-stack {
+  position: absolute;
+  inset: -4%;
+  width: 108%;
+  height: 108%;
+}
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 1.4s ease, transform 12s ease-out;
+  filter: saturate(1.15) contrast(1.08) brightness(0.92);
+}
+.hero-video.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+.hero-caustics {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  opacity: 0.45;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 30%, rgba(90, 220, 255, 0.28), transparent 55%),
+    radial-gradient(ellipse 50% 35% at 80% 60%, rgba(26, 180, 160, 0.22), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 80%, rgba(120, 200, 255, 0.16), transparent 55%);
+  animation: causticDrift 14s ease-in-out infinite alternate;
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(105deg, rgba(5,10,18,0.88) 6%, rgba(5,10,18,0.35) 48%, rgba(5,10,18,0.72) 100%),
+    radial-gradient(ellipse at 70% 35%, transparent 15%, rgba(5,10,18,0.55) 78%);
+}
+.hero-grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10, 90, 110, 0.12), transparent 40%, rgba(5,10,18,0.35) 100%);
+  mix-blend-mode: soft-light;
+}
+@keyframes causticDrift {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: 0.35; }
+  100% { transform: translate3d(3%, 2%, 0) scale(1.08); opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-video-stack { display: none; }
+  .hero-media {
+    background-image:
+      linear-gradient(105deg, rgba(5,10,18,0.9) 8%, rgba(5,10,18,0.5) 48%, rgba(5,10,18,0.82) 100%),
+      url('/images/hero/gulf-charter.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-caustics { animation: none; opacity: 0.25; }
+  .hero-video { transition: none; transform: none; }
+}
+@media (max-width: 720px) {
+  .hero--cinematic { min-height: 26rem; padding-top: 5.5rem; }
+}

@@ -1,8 +1,10 @@
 import store from './store.js';
 import { initLayout, money, tripCard, captainCard, stars } from './layout.js';
+import { initHeroVideo } from './hero-video.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initLayout('home');
+  initHeroVideo();
   const stats = store.fleetStats();
   const el = document.getElementById('fleet-stats');
   if (el) {
@@ -47,3 +49,4 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="muted" style="margin:0;font-size:0.82rem">${r.guest} · <span style="color:var(--teal-soft)">${r.highlight || ''}</span></p>
     </article>`).join('');
 });
+
