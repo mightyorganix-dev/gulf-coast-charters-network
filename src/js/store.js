@@ -14,7 +14,7 @@ const KEYS = {
   channels: 'gccn_channels',
   ia: 'gccn_ia',
   spine: 'gccn_spine',
-  seed: 'gccn_seed_v3',
+  seed: 'gccn_seed_v4',
 };
 
 class CharterNetworkStore {

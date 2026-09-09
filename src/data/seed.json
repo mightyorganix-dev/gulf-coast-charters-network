@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "brand": "Gulf Coast Charters Network",
   "cx": {
     "promise": "Every Gulf day is treated as once-in-a-lifetime \u2014 curated captains, weather integrity, keepsake itinerary, and a full outdoor catalog: fishing, adventures, watersports, and private yacht.",
@@ -1147,7 +1147,7 @@
       "childPrice": 95,
       "maxParty": 45,
       "depositPercent": 25,
-      "image": "./images/trips/offshore.jpg",
+      "image": "./images/trips/party.jpg",
       "includes": [
         "Seat on party vessel",
         "Bait & tackle",
@@ -1185,7 +1185,7 @@
       "basePrice": 550,
       "maxParty": 12,
       "depositPercent": 30,
-      "image": "./images/trips/sunset.jpg",
+      "image": "./images/trips/pontoon.jpg",
       "includes": [
         "Private pontoon",
         "Captain",
