@@ -1,7 +1,11 @@
 import store from './store.js';
-import { initLayout, money, categoryLabel } from './layout.js';
+import { initLayout, money } from './layout.js';
+import { renderMonthCalendar, monthLabel, todayISO } from './calendar.js';
 
 let currentId = 'op-3';
+const now = new Date();
+let viewYear = now.getFullYear();
+let viewMonth = now.getMonth();
 
 function smsBody(status, booking) {
   const templates = store.getSmsTemplates();
@@ -9,8 +13,41 @@ function smsBody(status, booking) {
   return base.replace('GCCN charter', `${booking.id} charter`);
 }
 
+function statusFor(iso) {
+  return store.getDateStatus(currentId, iso);
+}
+
+function renderAvailCal() {
+  const mount = document.getElementById('cap-cal-mount');
+  const labelEl = document.getElementById('cap-cal-label');
+  if (labelEl) labelEl.textContent = monthLabel(viewYear, viewMonth);
+  if (!mount) return;
+  renderMonthCalendar({
+    mount,
+    year: viewYear,
+    monthIndex: viewMonth,
+    statusFor,
+    selected: '',
+    editable: true,
+    ariaLabel: 'Edit your availability',
+    onSelect: (iso, status) => {
+      if (status === 'past' || status === 'booked') return;
+      store.toggleOperatorBlockedDate(currentId, iso);
+      renderAvailCal();
+      updateAvailStats();
+    },
+  });
+}
+
+function updateAvailStats() {
+  const el = document.getElementById('cap-avail-stats');
+  if (!el) return;
+  const blocked = store.getOperatorAvailability(currentId).blockedDates || [];
+  const upcoming = blocked.filter((d) => d >= todayISO()).length;
+  el.textContent = `${upcoming} blocked day${upcoming === 1 ? '' : 's'} ahead · changes save to this browser (localStorage).`;
+}
+
 function load() {
-  const captains = store.getOperators();
   const select = document.getElementById('captain-select');
   currentId = select.value || currentId;
   const captain = store.getOperatorById(currentId);
@@ -22,6 +59,9 @@ function load() {
   document.getElementById('cap-steward').textContent = captain?.stewardship || '';
   document.getElementById('cap-boat').textContent = boats.map((b) => `${b.name} (${b.lengthFeet}')`).join(' · ') || 'No vessel assigned';
   document.getElementById('total-charters-count').textContent = bookings.length;
+
+  renderAvailCal();
+  updateAvailStats();
 
   const container = document.getElementById('manifest-container');
   if (!bookings.length) {
@@ -106,6 +146,18 @@ document.addEventListener('DOMContentLoaded', () => {
   select.innerHTML = store.getOperators().map((c) => `<option value="${c.id}" ${pre === c.id ? 'selected' : ''}>${c.name}</option>`).join('');
   if (pre) currentId = pre;
   select.addEventListener('change', load);
+  document.getElementById('cap-cal-prev')?.addEventListener('click', () => {
+    const d = new Date(viewYear, viewMonth - 1, 1);
+    viewYear = d.getFullYear();
+    viewMonth = d.getMonth();
+    renderAvailCal();
+  });
+  document.getElementById('cap-cal-next')?.addEventListener('click', () => {
+    const d = new Date(viewYear, viewMonth + 1, 1);
+    viewYear = d.getFullYear();
+    viewMonth = d.getMonth();
+    renderAvailCal();
+  });
   document.getElementById('sms-close')?.addEventListener('click', () => document.getElementById('sms-modal').classList.add('hidden'));
   document.getElementById('sms-send')?.addEventListener('click', () => {
     document.getElementById('sms-modal').classList.add('hidden');

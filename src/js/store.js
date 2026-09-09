@@ -14,7 +14,8 @@ const KEYS = {
   channels: 'gccn_channels',
   ia: 'gccn_ia',
   spine: 'gccn_spine',
-  seed: 'gccn_seed_v6',
+  availability: 'gccn_availability',
+  seed: 'gccn_seed_v7',
 };
 
 class CharterNetworkStore {
@@ -23,7 +24,7 @@ class CharterNetworkStore {
   }
 
   init() {
-    if (localStorage.getItem(KEYS.seed) !== '6') {
+    if (localStorage.getItem(KEYS.seed) !== '7') {
       localStorage.setItem(KEYS.operators, JSON.stringify(seed.operators));
       localStorage.setItem(KEYS.boats, JSON.stringify(seed.boats));
       localStorage.setItem(KEYS.trips, JSON.stringify(seed.trips));
@@ -37,7 +38,8 @@ class CharterNetworkStore {
       localStorage.setItem(KEYS.channels, JSON.stringify(seed.channels || []));
       localStorage.setItem(KEYS.ia, JSON.stringify(seed.ia || {}));
       localStorage.setItem(KEYS.spine, JSON.stringify(seed.spine || {}));
-      localStorage.setItem(KEYS.seed, '6');
+      localStorage.setItem(KEYS.availability, JSON.stringify(seed.availability || {}));
+      localStorage.setItem(KEYS.seed, '7');
     }
   }
 
@@ -103,6 +105,85 @@ class CharterNetworkStore {
   getSmsTemplates() {
     try { return JSON.parse(localStorage.getItem(KEYS.sms) || '{}'); }
     catch { return seed.smsTemplates || {}; }
+  }
+
+  /** Per-operator blocked dates map: { [operatorId]: { blockedDates: string[] } } */
+  getAvailabilityMap() {
+    try {
+      const raw = localStorage.getItem(KEYS.availability);
+      if (raw) return JSON.parse(raw);
+    } catch { /* fall through */ }
+    return seed.availability || {};
+  }
+
+  getOperatorAvailability(operatorId) {
+    const map = this.getAvailabilityMap();
+    return map[operatorId] || { blockedDates: [] };
+  }
+
+  setOperatorBlockedDates(operatorId, blockedDates) {
+    const map = this.getAvailabilityMap();
+    map[operatorId] = {
+      ...(map[operatorId] || {}),
+      blockedDates: [...new Set(blockedDates)].sort(),
+    };
+    this._set(KEYS.availability, map);
+    return map[operatorId];
+  }
+
+  toggleOperatorBlockedDate(operatorId, isoDate) {
+    const cur = this.getOperatorAvailability(operatorId);
+    const set = new Set(cur.blockedDates || []);
+    if (set.has(isoDate)) set.delete(isoDate);
+    else set.add(isoDate);
+    return this.setOperatorBlockedDates(operatorId, [...set]);
+  }
+
+  /** Captains who can run a trip (private whole-boat day). */
+  getTripCaptainIds(trip) {
+    if (!trip) return [];
+    if (Array.isArray(trip.captainIds) && trip.captainIds.length) {
+      return [...new Set(trip.captainIds.map(String))];
+    }
+    const fromResources = (trip.resourceIds || []).filter((id) => String(id).startsWith('op-'));
+    if (fromResources.length) {
+      return [...new Set([String(trip.operatorId), ...fromResources.map(String)])];
+    }
+    return trip.operatorId ? [String(trip.operatorId)] : [];
+  }
+
+  _todayISO() {
+    const d = new Date();
+    const p = (n) => String(n).padStart(2, '0');
+    return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`;
+  }
+
+  /** Active booking that consumes a captain's day (private charter = whole boat). */
+  getBookingOnDate(operatorId, isoDate) {
+    return this.getBookings().find((b) => {
+      if (String(b.operatorId) !== String(operatorId)) return false;
+      if (b.tripDate !== isoDate) return false;
+      const st = (b.status || '').toLowerCase();
+      if (st === 'cancelled' || st === 'canceled') return false;
+      return true;
+    });
+  }
+
+  /**
+   * Date status for a captain: available | blocked | booked | past
+   * (guest calendars treat blocked/booked/past as unavailable)
+   */
+  getDateStatus(operatorId, isoDate) {
+    if (!operatorId || !isoDate) return 'unavailable';
+    if (isoDate < this._todayISO()) return 'past';
+    if (this.getBookingOnDate(operatorId, isoDate)) return 'booked';
+    const blocked = this.getOperatorAvailability(operatorId).blockedDates || [];
+    if (blocked.includes(isoDate)) return 'blocked';
+    return 'available';
+  }
+
+  isDateAvailable(operatorId, isoDate) {
+    return this.getDateStatus(operatorId, isoDate) === 'available';
   }
 
   filterTrips({ category, marina, maxPrice, party, q, group } = {}) {

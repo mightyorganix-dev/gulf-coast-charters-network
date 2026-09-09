@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reserve a Charter | Gulf Coast Charters Network</title>
   <meta name="description" content="Multi-step booking — trip, date, guest info, waiver, deposit hold." />
-  <script type="module" crossorigin src="./assets/book-wDmpRWqQ.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/layout-Bls6Wddv.js">
-  <link rel="stylesheet" crossorigin href="./assets/layout-DAoeAzfz.css">
+  <script type="module" crossorigin src="./assets/book-qeXQj5pG.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/layout-BbULftOu.js">
+  <link rel="modulepreload" crossorigin href="./assets/calendar-Bl8JN4N6.js">
+  <link rel="stylesheet" crossorigin href="./assets/layout-CavkVhN8.css">
 </head>
 <body>
   <div id="site-nav"></div>
@@ -37,21 +38,42 @@
 
       <section id="step-2" class="hidden">
         <h2>Date &amp; party</h2>
-        <div class="grid-2" style="margin:1.25rem 0">
-          <div class="field"><label for="trip-date">Charter date</label><input id="trip-date" type="date"></div>
-          <div class="field"><label for="start-time">Preferred start</label>
-            <select id="start-time">
-              <option>06:00 AM</option><option>06:30 AM</option><option>07:00 AM</option>
-              <option>09:00 AM</option><option>10:00 AM</option><option>02:00 PM</option>
-              <option>05:30 PM</option><option>06:30 PM</option>
-            </select>
+        <p class="muted">Open dates for your captain · private whole-boat day.</p>
+        <div id="book-captain-pick" class="cal-captain-block"></div>
+        <div class="cal-layout cal-layout--book" style="margin:1.25rem 0">
+          <div class="card cal-card">
+            <div class="cal-toolbar">
+              <button type="button" class="btn btn-ghost btn-sm" id="book-cal-prev" aria-label="Previous month">‹</button>
+              <strong id="book-cal-label" class="cal-month-label"></strong>
+              <button type="button" class="btn btn-ghost btn-sm" id="book-cal-next" aria-label="Next month">›</button>
+            </div>
+            <div id="book-cal-mount"></div>
+            <div class="cal-legend" aria-hidden="true">
+              <span><i class="cal-dot cal-dot--available"></i> Available</span>
+              <span><i class="cal-dot cal-dot--blocked"></i> Unavailable</span>
+              <span><i class="cal-dot cal-dot--selected"></i> Selected</span>
+            </div>
           </div>
-        </div>
-        <div class="field"><label>Party size</label>
-          <div class="qty">
-            <button type="button" id="party-minus">−</button>
-            <strong id="party-display" style="color:var(--cream)">4</strong>
-            <button type="button" id="party-plus">+</button>
+          <div class="card cal-price-card">
+            <div class="card-kicker">Selected hold</div>
+            <div id="book-date-price"></div>
+            <input type="hidden" id="trip-date" value="">
+            <div class="field" style="margin-top:1rem">
+              <label for="start-time">Preferred start</label>
+              <select id="start-time">
+                <option>06:00 AM</option><option>06:30 AM</option><option>07:00 AM</option>
+                <option>09:00 AM</option><option>10:00 AM</option><option>02:00 PM</option>
+                <option>05:30 PM</option><option>06:30 PM</option>
+              </select>
+            </div>
+            <div class="field" style="margin-top:0.85rem">
+              <label>Party size</label>
+              <div class="qty">
+                <button type="button" id="party-minus">−</button>
+                <strong id="party-display" style="color:var(--cream)">4</strong>
+                <button type="button" id="party-plus">+</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="actions" style="margin-top:1.25rem">

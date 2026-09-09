@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Captain Portal | Gulf Coast Charters Network</title>
-  <meta name="description" content="Manifests, weather Green/Yellow/Red calls, and guest SMS templates." />
+  <meta name="description" content="Manifests, weather Green/Yellow/Red calls, availability calendar, and guest SMS templates." />
   <link rel="stylesheet" href="/src/css/main.css" />
 </head>
 <body>
   <div id="site-nav"></div>
-  <header class="page-hero"><div class="container"><div class="eyebrow">Operator desk</div><h1>Captain portal</h1><p>Manifests, weather calls, waiver readiness, and simulated guest SMS — the stewardship tools behind premier CX.</p></div></header>
+  <header class="page-hero"><div class="container"><div class="eyebrow">Operator desk</div><h1>Captain portal</h1><p>Manifests, weather calls, availability, waiver readiness, and simulated guest SMS — the stewardship tools behind premier CX.</p></div></header>
   <main class="page" style="padding-top:0">
     <div class="container">
       <div class="row-between" style="margin-bottom:1.5rem">
@@ -25,6 +25,35 @@
           <p id="cap-steward" class="muted" style="margin:0.5rem 0 0;font-size:0.85rem;max-width:60ch"></p>
         </div>
       </div>
+
+      <section class="cal-panel" style="margin-bottom:2rem" aria-labelledby="avail-edit-heading">
+        <div class="section-title" style="text-align:left;margin-bottom:1rem">
+          <h2 id="avail-edit-heading">Availability</h2>
+          <p>Tap a day to block or reopen. Booked guest holds stay locked. Private whole-boat days only.</p>
+        </div>
+        <div class="cal-layout">
+          <div class="card cal-card">
+            <div class="cal-toolbar">
+              <button type="button" class="btn btn-ghost btn-sm" id="cap-cal-prev" aria-label="Previous month">‹</button>
+              <strong id="cap-cal-label" class="cal-month-label"></strong>
+              <button type="button" class="btn btn-ghost btn-sm" id="cap-cal-next" aria-label="Next month">›</button>
+            </div>
+            <div id="cap-cal-mount"></div>
+            <div class="cal-legend" aria-hidden="true">
+              <span><i class="cal-dot cal-dot--available"></i> Open</span>
+              <span><i class="cal-dot cal-dot--blocked"></i> Blocked</span>
+              <span><i class="cal-dot cal-dot--booked"></i> Booked</span>
+            </div>
+          </div>
+          <div class="card cal-price-card">
+            <div class="card-kicker">Edit tip</div>
+            <p style="margin:0;color:var(--cream);font-size:0.92rem">Click any open or blocked day to toggle. Booked dates cannot be cleared here — manage the manifest below.</p>
+            <p id="cap-avail-stats" class="muted" style="margin:1rem 0 0;font-size:0.85rem"></p>
+          </div>
+        </div>
+      </section>
+
+      <h2 style="margin-bottom:1rem">Manifests</h2>
       <div id="manifest-container"></div>
     </div>
   </main>

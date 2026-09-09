@@ -94,6 +94,35 @@ document.addEventListener('DOMContentLoaded', () => {
       </tbody>
     </table></div>`;
 
+
+  const pad = (n) => String(n).padStart(2, '0');
+  const toLocalISO = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  const today = toLocalISO(new Date());
+  document.getElementById('admin-availability').innerHTML = `
+    <div class="table-wrap"><table>
+      <thead><tr><th>Captain</th><th>Blocked ahead</th><th>Next blocked</th><th>Open sample</th><th>Edit</th></tr></thead>
+      <tbody>
+        ${store.getOperators().map((o) => {
+          const blocked = (store.getOperatorAvailability(o.id).blockedDates || []).filter((d) => d >= today).sort();
+          const open = [];
+          const cursor = new Date();
+          for (let i = 0; i < 45 && open.length < 3; i++) {
+            const iso = toLocalISO(cursor);
+            if (store.isDateAvailable(o.id, iso)) open.push(iso);
+            cursor.setDate(cursor.getDate() + 1);
+          }
+          return `<tr>
+            <td><a href="captain.html?id=${o.id}">${o.name}</a></td>
+            <td>${blocked.length}</td>
+            <td>${blocked.slice(0, 3).join(', ') || '—'}</td>
+            <td>${open.join(', ') || '—'}</td>
+            <td><a href="captain-portal.html?captain=${o.id}">Portal calendar</a></td>
+          </tr>`;
+        }).join('')}
+      </tbody>
+    </table></div>
+    <p class="muted" style="font-size:0.82rem;margin-top:0.75rem">Availability = per-captain blockedDates + active bookings (whole-boat day). Guests see open dates on trip &amp; book flows.</p>`;
+
   const apps = store.getApplications();
   document.getElementById('admin-apps').innerHTML = apps.length
     ? `<div class="table-wrap"><table><thead><tr><th>ID</th><th>Name</th><th>Company</th><th>Marina</th><th>Status</th></tr></thead><tbody>
