@@ -1,0 +1,1 @@
+import{i as e,s as n,d as i}from"./layout-BWAD9g3P.js";document.addEventListener("DOMContentLoaded",()=>{e("captains");const t=n.getOperators().filter(a=>a.status==="active");document.getElementById("captains-grid").innerHTML=t.map(i).join("")});

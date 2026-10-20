@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guest Itinerary Pass | Gulf Coast Charters Network</title>
+  <meta name="description" content="Keepsake boarding pass — lookup by GCCN reference." />
+  <link rel="stylesheet" href="/src/css/main.css" />
+</head>
+<body>
+  <div id="site-nav"></div>
+  <main class="page">
+    <div class="container-narrow">
+      <div class="row-between no-print" style="margin-bottom:1.25rem">
+        <div>
+          <h1 style="margin:0">Your day on the Gulf</h1>
+          <p style="margin:0.25rem 0 0">Keepsake boarding pass — lookup by reference (e.g. GCCN-7801).</p>
+        </div>
+        <div class="actions">
+          <input id="lookup-input" type="text" placeholder="GCCN-7801" style="background:var(--navy-950);border:1px solid var(--navy-700);color:white;border-radius:12px;padding:0.55rem 0.75rem;text-transform:uppercase;width:9rem" />
+          <button id="lookup-btn" type="button" class="btn btn-primary btn-sm">Lookup</button>
+        </div>
+      </div>
+
+      <div id="not-found-card" class="empty-state">
+        <strong>Enter your reference</strong>
+        <p>Try sample hold <strong style="color:var(--cream)">GCCN-7801</strong> — or book a new premier charter.</p>
+        <a class="btn btn-primary" href="book.html">Reserve a hold</a>
+      </div>
+
+      <div id="ticket-card" class="space-y hidden">
+        <div class="pass-header">
+          <div class="row-between" style="border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:1rem">
+            <div>
+              <div class="actions" style="margin-bottom:0.5rem">
+                <span id="pass-ref-id" class="badge badge-info">REF #</span>
+                <span class="badge badge-ok">Deposit hold</span>
+              </div>
+              <h2 id="pass-trip-title" style="margin:0;font-size:1.8rem">Trip</h2>
+              <p id="pass-trip-subtitle" style="margin:0.35rem 0 0">—</p>
+            </div>
+            <button type="button" class="btn btn-ghost btn-sm no-print" onclick="window.print()">Save this pass</button>
+          </div>
+          <div id="pass-weather-banner" class="weather-banner weather-green"></div>
+          <div class="grid-2" style="grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem">
+            <div><div class="muted" style="font-size:0.75rem">Charter date</div><strong id="pass-date" style="color:var(--cream)">—</strong></div>
+            <div><div class="muted" style="font-size:0.75rem">Dock arrival</div><strong id="pass-time" style="color:var(--ocean-soft)">—</strong></div>
+            <div><div class="muted" style="font-size:0.75rem">Captain</div><strong id="pass-captain" style="color:var(--cream)">—</strong></div>
+            <div><div class="muted" style="font-size:0.75rem">Vessel</div><strong id="pass-vessel" style="color:var(--teal-soft)">—</strong></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h3 style="font-size:1.15rem">Docking location</h3>
+          <div class="row-between" style="background:rgba(0,0,0,0.2);padding:1rem;border-radius:14px">
+            <div>
+              <strong id="pass-marina-name" style="color:var(--cream)">Marina</strong>
+              <p id="pass-marina-address" style="margin:0.25rem 0;font-size:0.85rem">Address</p>
+              <p style="margin:0;font-size:0.8rem">Park in the charter lot. Meet your captain at the slip 30 minutes early — calm boarding is part of the product.</p>
+            </div>
+            <a id="pass-gps-link" class="btn btn-primary btn-sm" href="https://maps.google.com" target="_blank" rel="noopener">Open GPS</a>
+          </div>
+        </div>
+
+        <div class="check-grid" style="margin-top:1rem">
+          <div class="card">
+            <h3 style="font-size:1.15rem">Ceremonial checklist</h3>
+            <ul class="check-list" id="pass-checklist"></ul>
+            <a href="what-to-bring.html" style="font-size:0.85rem;font-weight:600">Full packing list →</a>
+          </div>
+          <div class="card">
+            <h3 style="font-size:1.15rem">Guest &amp; hold</h3>
+            <div class="row-between" style="background:rgba(0,0,0,0.2);padding:0.65rem 0.8rem;border-radius:10px;margin-bottom:0.5rem;font-size:0.85rem">
+              <span class="muted">Lead guest</span><span id="pass-guest" style="color:var(--cream);font-weight:600">—</span>
+            </div>
+            <div class="row-between" style="background:rgba(0,0,0,0.2);padding:0.65rem 0.8rem;border-radius:10px;margin-bottom:0.5rem;font-size:0.85rem">
+              <span class="muted">Party</span><span id="pass-party" style="color:var(--cream)">—</span>
+            </div>
+            <div class="row-between" style="background:rgba(0,0,0,0.2);padding:0.65rem 0.8rem;border-radius:10px;margin-bottom:0.5rem;font-size:0.85rem">
+              <span class="muted">Deposit</span><span id="pass-deposit" style="color:var(--ok)">—</span>
+            </div>
+            <div class="row-between" style="background:rgba(0,0,0,0.2);padding:0.65rem 0.8rem;border-radius:10px;font-size:0.85rem">
+              <span class="muted">Waiver</span><span id="pass-waiver" style="color:var(--cream)">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:1rem;border-color:rgba(196,165,116,0.28)">
+          <div class="card-kicker">Experience promise</div>
+          <p id="pass-promise" style="margin:0;color:var(--cream)"></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script type="module" src="/src/js/itinerary.js"></script>
+</body>
+</html>

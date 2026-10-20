@@ -1,0 +1,24 @@
+import store from './store.js';
+import { initLayout } from './layout.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  initLayout();
+  const marina = document.getElementById('app-marina');
+  marina.innerHTML = store.getMarinas().map((m) => `<option value="${m.name}">${m.name}</option>`).join('');
+  document.getElementById('join-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const row = store.addApplication({
+      name: document.getElementById('app-name').value.trim(),
+      company: document.getElementById('app-company').value.trim(),
+      email: document.getElementById('app-email').value.trim(),
+      phone: document.getElementById('app-phone').value.trim(),
+      marina: document.getElementById('app-marina').value,
+      specialties: document.getElementById('app-specialty').value,
+      vessel: document.getElementById('app-vessel').value.trim(),
+      uscg: document.getElementById('app-uscg').value.trim(),
+      note: document.getElementById('app-note').value.trim(),
+    });
+    document.getElementById('join-result').innerHTML = `<div class="card" style="border-color:rgba(61,186,140,0.35)"><div class="card-kicker">Application received</div><h3>Reference ${row.id}</h3><p>Network review is invitation-first. We curate for guest experience — not volume. Expect a steward call within a few business days.</p></div>`;
+    e.target.reset();
+  });
+});
